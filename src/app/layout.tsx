@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from '@/components/Navbar'
-
+import StoreProvider from './StoreProvider'
 
 export const metadata: Metadata = {
   title: 'Erotas',
@@ -16,9 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className='flex flex-col'>
-        <Navbar />
-        {children}
-        </body>
+        <StoreProvider>
+          <Navbar />
+          {children}
+        </StoreProvider>
+      </body>
     </html>
   )
 }

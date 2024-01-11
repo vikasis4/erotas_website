@@ -1,0 +1,15 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import type { userTypes } from '../../types'
+import { baseUrl } from '@/config/apis'
+
+export const userApi = createApi({
+    reducerPath: 'userApi',
+    baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+    endpoints: (builder) => ({
+        fetchUser: builder.query<{ status: string, data: userTypes }, string | null >({
+            query: (token) => `token/${token}`,
+        }),
+    }),
+})
+
+export const { useFetchUserQuery } = userApi

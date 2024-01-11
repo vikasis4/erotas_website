@@ -18,6 +18,8 @@ function Loader() {
         dispatch(setIsLoading(isLoading));
         if (data?.status === 'true') {
             dispatch(setIsAuthenticated(true))
+        }else if (data?.status === 'error'){
+            alert('Something went wrong while signing in, logout and signIn again')
         }
     },[isLoading])
 

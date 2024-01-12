@@ -16,9 +16,9 @@ export type productTypes = {
     _id: string,
     productId: String,
     name: String,
-    price: Number,
-    description: String,
-    imagesLink: String[],
-    reviews: String[],
-    searchWords: String[]
+    price: number,
+    description: string,
+    imagesLink: string[],
+    reviews: string[],
+    searchWords: string[]
 }

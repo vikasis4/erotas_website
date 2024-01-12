@@ -12,7 +12,8 @@ function ProductMap({ data }: any) {
     }
 
     return (
-        <div onClick={() => router.push(`/product/${productId}`)} className="hover:cursor-pointer flex flex-col justify-center items-center shadow-lg py-4 overflow-hidden rounded-xl bg-white w-96">
+        <div onClick={() => router.push(`/product/${productId}`)} 
+        className="hover:cursor-pointer flex flex-col justify-center items-center shadow-lg py-4 overflow-hidden rounded-xl bg-white w-96 hover:scale-125 duration-300 ">
             <Image loader={myLoader} src={ProductBaseURL + imagesLink[0]} alt="Product" height={300} width={300} />
             <div className="px-4 bg-white">
                 <h1 className="text-lg font-poppin text-black text-center py-1">{name}</h1>

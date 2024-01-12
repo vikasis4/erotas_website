@@ -4,6 +4,7 @@ import { Poppins, Roboto_Mono } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import StoreProvider from './StoreProvider'
 import Loader from '@/components/Loader'
+import Footer from '@/components/Footer'
 
 const poppins = Poppins({
   weight: ['200','300', '400','500','600', '700','800'],
@@ -35,6 +36,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Loader />
+          <Footer />
         </StoreProvider>
       </body>
     </html>

@@ -12,3 +12,13 @@ export type userTypes = {
         token: string
     }]
 }
+export type productTypes = {
+    _id: string,
+    productId: String,
+    name: String,
+    price: Number,
+    description: String,
+    imagesLink: String[],
+    reviews: String[],
+    searchWords: String[]
+}

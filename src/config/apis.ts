@@ -1,5 +1,6 @@
-export const baseUrl = 'http://localhost:3001/api/auth/'
+export const baseUrl = 'http://localhost:3001/api/'
 export const otpVerifyApi = 'http://localhost:3001/api/auth/otp/verify'
 export const signUpApi = 'http://localhost:3001/api/auth/register'
 export const signInApi = 'http://localhost:3001/api/auth/login'
 export const otpGenerateApi = 'http://localhost:3001/api/auth/login'
+export const ProductBaseURL = 'http://localhost:3001/product/'

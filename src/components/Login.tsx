@@ -33,7 +33,7 @@ export default function Login({ state, setState, redux }: any) {
                 value={state.email}
                 onChange={(e) => setState({ ...state, email: e.target.value })}
                 placeholder="Enter Your Email"
-                className='outline-none p-2 rounded mb-4'
+                className='outline-none p-2 rounded mb-4 font-poppin'
             />
             <button
                 onClick={handleSubmit}

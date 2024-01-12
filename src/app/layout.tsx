@@ -19,8 +19,8 @@ const roboto_mono = Roboto_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Erotas',
-  description: 'Erotas shopping',
+  title: 'Erota',
+  description: 'Erota shopping',
 }
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${poppins.variable} ${roboto_mono.variable}`}>
-      <body className='flex flex-col'>
+      <body>
         <StoreProvider>
           <Navbar />
           {children}

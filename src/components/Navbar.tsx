@@ -18,7 +18,7 @@ function RightBar(router: any) {
 
   return (
     <div className="flex w-full justify-center items-center gap-8">
-      <h1 className="hover:cursor-pointer font-poppin text-black text-bold" onClick={() => router.router.push(path)}>{general.isAuthenticated ? data?.data.name : 'SignUp'}</h1>
+      <h1 className="hover:cursor-pointer font-poppin text-black text-3xl" onClick={() => router.router.push(path)}>{general.isAuthenticated ? data?.data.name : 'SignUp'}</h1>
       <div className="hover:cursor-pointer relative">
         <Image alt="arotas" width={30} height={30} src={require('../assets/icon/love.png')} />
         <h1 className="absolute bottom-6 left-7 text-red-500 text-bold">0</h1>

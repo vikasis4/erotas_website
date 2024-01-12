@@ -46,14 +46,14 @@ export default function Otp({ state, redux }: any) {
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
                 placeholder="Enter Your 4-digit OTP"
-                className='outline-none p-2 rounded mb-4'
+                className='outline-none p-2 rounded mb-4 font-poppin'
             />
 
             {
                 count === 0 ?
                     <h1
                         onClick={handleResend}
-                        className="text-sm font-medium font-poppin hover:cursor-pointer"
+                        className="text-sm text-green-600 font-medium font-poppin hover:cursor-pointer"
                     >Resend OTP</h1>
                     :
                     <Timer count={count} setCount={setCount} />

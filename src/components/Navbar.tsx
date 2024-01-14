@@ -14,7 +14,6 @@ function RightBar(router: any) {
   const { data } = useGetCartQuery(userId);
 
   var path = general.isAuthenticated ? '/account' : '/auth';
-  console.log(general);
   
 
 

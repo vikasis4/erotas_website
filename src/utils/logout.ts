@@ -7,5 +7,5 @@ export const handleLogOut = ({dispatch, router}:any) => {
     };
     dispatch(setLogOut());
     router.refresh();   
-    router.push('/') 
+    router.push('/');    
 }

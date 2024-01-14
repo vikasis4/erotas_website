@@ -12,7 +12,8 @@ function Loader() {
     const dispatch = useAppDispatch()
 
     const token = getJWTtoken()
-    const { data, isLoading } = useFetchUserQuery(token);
+    const { data, isLoading, refetch } = useFetchUserQuery(token);
+    
     
     React.useEffect(()=>{
         dispatch(setIsLoading(isLoading));

@@ -58,8 +58,8 @@ export default function Page() {
                         <div className="font-poppin text-center border-box px-4 flex-1 gap-10 flex flex-col justify-between items-center pr-4 pb-12">
                             <h1 className="font-semibold text-2xl" >{data?.product.name}</h1>
                             <h1 className="font-bold text-3xl text-green-500" >Price :- &#8377; {data?.product.price}</h1>
-                            <div className="flex justify-around border-box w-full">
-                                <button onClick={() => router.push('/cart')} className="bg-red-600 rounded hover:scale-125 duration-300 font-semibold text-white shadow text-2xl p-4" >Go To Cart</button>
+                            <div className="flex border-box w-full gap-4 justify-center items-center">
+                                <button onClick={() => router.push('/cart')} className="bg-red-600 rounded lg:hover:scale-125 flex-1 duration-300 font-semibold text-white shadow text-xl p-3" >Go To Cart</button>
                                 <ProductConfig productId={id.productId} />
                             </div>
                             <h1>{data?.product.description}</h1>

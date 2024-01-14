@@ -22,7 +22,7 @@ function RightBar(router: any) {
       <h1 className="hover:cursor-pointer  text-black font-semibold text-2xl" onClick={() => router.router.push(path)}>{general.isAuthenticated ? general.name : 'SignUp'}</h1>
       <div className="hover:cursor-pointer relative">
         <Image onClick={() => router.router.push('/cart')} alt="arotas" width={30} height={30} src={require('../assets/icon/cart.png')} />
-        <h1 className="absolute bottom-6 left-7 text-red-500 text-bold">{general.isAuthenticated ? data?.cart.length : 0}</h1>
+        <h1 className="absolute font-poppin bottom-6 left-7 text-red-500 font-bold">{general.isAuthenticated ? data?.cart.length : 0}</h1>
       </div>
     </div>
   )

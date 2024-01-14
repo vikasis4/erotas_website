@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { useAppSelector, useAppDispatch } from '@/redux/hooks'
-import { setIsLoading, setIsAuthenticated, setUserInfo } from '@/redux/slice/general/index'
+import { setIsLoading, setUserInfo } from '@/redux/slice/general/index'
 import { useFetchUserQuery } from '@/redux/slice/user/index'
 import { getJWTtoken } from '../utils/getJWTtoken'
 
@@ -17,7 +17,6 @@ function Loader() {
     React.useEffect(()=>{
         dispatch(setIsLoading(isLoading));
         if (data?.status === 'true') {
-            dispatch(setIsAuthenticated(true))            
             dispatch(setUserInfo(data?.data))            
         }else if (data?.status === 'error'){
             alert('Something went wrong while signing in, logout and signIn')

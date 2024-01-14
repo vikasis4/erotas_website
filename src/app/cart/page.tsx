@@ -31,9 +31,10 @@ function page() {
                             :
                             data?.cart.map((data: any) => <CartElementMap key={data._id} data={data} />)
                     }
+                    <div className="lg:hidden h-[10rem]"></div>
                 </div>
 
-                <div className="flex-1 font-semibold lg:bg-[#F5F5F5] bg-red-600 text-2xl lg:flex-col flex gap-0  py-4 lg:gap-10 justify-around items-center lg:relative absolute bottom-0 w-full">
+                <div className="flex-1 font-semibold lg:bg-[#F5F5F5] bg-red-600 text-2xl lg:flex-col flex gap-0  py-4 lg:gap-10 justify-around items-center lg:relative fixed bottom-0 w-full">
                     <h1 className="hidden lg:block text-black">Total Price :</h1>
                     <h1 className="lg:hidden text-white lg:text-black">Total - &nbsp; &#8377; {priceCalc(data?.cart)}</h1>
                     <h1 className=" hidden lg:block text-white lg:text-green-600">&#8377; {priceCalc(data?.cart)}</h1>

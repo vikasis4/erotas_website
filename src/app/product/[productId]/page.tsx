@@ -1,20 +1,24 @@
 'use client'
-import { useParams } from "next/navigation"
+import { useParams, useRouter } from "next/navigation"
 import React from "react";
 import { useFetchProductQuery } from '@/redux/slice/products/index'
 import Image from "next/image";
 import { ProductBaseURL } from "@/config/apis";
+import ProductConfig from "@/components/ProductConfig";
 
 export default function Page() {
 
     const id = useParams();
+    const [currentImage, setCurrentImage] = React.useState(0);
     const { isLoading, data } = useFetchProductQuery(id.productId);
-    const [currentImage, setCurrentImage] = React.useState(0)
+    const router = useRouter()
 
     if (data?.status === 'false') {
         return <h1 className="flex justify-center items-center h-full w-full font-poppin text-4xl text-red-600">Something went wrong...</h1>
     }
 
+
+    ///////////////////////////////////////// IMAGE LOADERS ///////////////////////////////////
     const myLoader = () => {
         return ProductBaseURL + data?.product.imagesLink[currentImage];
     }
@@ -36,11 +40,11 @@ export default function Page() {
                             <div className="flex justify-center items-center gap-8 mt-12 flex-col">
                                 {
                                     data?.product.imagesLink.map((link, index) => {
-                                        return (<>
+                                        return (<div key={index}>
                                             <Image onClick={() => setCurrentImage(index)} loader={() => newLoader(index)} src={ProductBaseURL + data?.product.imagesLink[index]} alt="product" height="50" width="50"
                                                 className="rounded-xl h-20 w-20 shadow-lg hover:scale-[2.5] hover:cursor-pointer duration-300"
                                             />
-                                        </>)
+                                        </div>)
                                     })
                                 }
                             </div>
@@ -55,17 +59,17 @@ export default function Page() {
                             <h1 className="font-semibold text-2xl" >{data?.product.name}</h1>
                             <h1 className="font-bold text-xl text-green-500" >Price :- &#8377; {data?.product.price}</h1>
                             <div className="flex gap-10">
-                                <button className="bg-red-600 rounded hover:scale-125 duration-300 font-semibold text-white shadow py-2 px-8" >Buy Now</button>
-                                <button className="bg-purple-600 hover:scale-125 duration-300 rounded font-semibold text-white shadow py-2 px-8" >Add to Cart</button>
+                                <button onClick={() => router.push('/cart')} className="bg-red-600 rounded hover:scale-125 duration-300 font-semibold text-white shadow py-2 px-8" >Go To Cart</button>
+                                <ProductConfig productId={id.productId} />
                             </div>
                             <h1>{data?.product.description}</h1>
                             <div className="flex flex-wrap gap-4">
                                 <h1 className="font-semibold text-2xl">Reviews</h1>
                                 {
-                                    data?.product.reviews.map((review) => {
-                                        return (<>
+                                    data?.product.reviews.map((review, index) => {
+                                        return (<div key={index}>
                                             <h1 className="bg-white rounded shadow p-2" >{review}</h1>
-                                        </>)
+                                        </div>)
                                     })
                                 }
                             </div>

@@ -2,17 +2,19 @@ import { configureStore } from '@reduxjs/toolkit'
 import accountReducer from '@/redux/slice/general/index';
 import { userApi } from './slice/user';
 import { productsApi } from './slice/products';
+import { cartApi } from './slice/cart';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
         general:accountReducer,
         [userApi.reducerPath]: userApi.reducer,
-        [productsApi.reducerPath]: productsApi.reducer
+        [productsApi.reducerPath]: productsApi.reducer,
+        [cartApi.reducerPath]: cartApi.reducer
     },
 
     middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(userApi.middleware, productsApi.middleware),
+    getDefaultMiddleware().concat(userApi.middleware, productsApi.middleware, cartApi.middleware),
   })
 }
 

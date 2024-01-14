@@ -4,24 +4,25 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useAppSelector } from '@/redux/hooks'
-import { useFetchUserQuery } from '@/redux/slice/user/index'
-import { getJWTtoken } from '../utils/getJWTtoken'
+import { useGetCartQuery } from '@/redux/slice/cart'
 
 
 function RightBar(router: any) {
 
-  const general = useAppSelector((state) => state.general)
-  const token = getJWTtoken()
-  const { data } = useFetchUserQuery(token);
+  const general = useAppSelector((state) => state.general);
+  const userId = useAppSelector((state) => state.general._id);
+  const { data } = useGetCartQuery(userId);
 
   var path = general.isAuthenticated ? '/account' : '/auth';
+  React.useEffect(() => {
+  }, [general.name])
 
   return (
-    <div className="flex w-full justify-center items-center gap-8">
-      <h1 className="hover:cursor-pointer font-poppin text-black text-3xl" onClick={() => router.router.push(path)}>{general.isAuthenticated ? data?.data.name : 'SignUp'}</h1>
+    <div className="flex font-poppin w-full justify-center items-center gap-8">
+      <h1 className="hover:cursor-pointer  text-black text-3xl" onClick={() => router.router.push(path)}>{general.isAuthenticated ? general.name : 'SignUp'}</h1>
       <div className="hover:cursor-pointer relative">
-        <Image alt="arotas" width={30} height={30} src={require('../assets/icon/cart.png')} />
-        <h1 className="absolute bottom-6 left-7 text-red-500 text-bold">0</h1>
+        <Image onClick={() => router.router.push('/cart')} alt="arotas" width={30} height={30} src={require('../assets/icon/cart.png')} />
+        <h1 className="absolute bottom-6 left-7 text-red-500 text-bold">{general.isAuthenticated ? data?.cart.length : 0}</h1>
       </div>
     </div>
   )

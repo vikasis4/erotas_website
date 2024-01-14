@@ -3,14 +3,7 @@ export type userTypes = {
     name: string,
     _id: string,
     otp: number,
-    cart: [{
-        name: string,
-        price: number,
-        productId: string
-    }],
-    tokens: [{
-        token: string
-    }]
+    price: number,
 }
 export type productTypes = {
     _id: string,
@@ -21,4 +14,19 @@ export type productTypes = {
     imagesLink: string[],
     reviews: string[],
     searchWords: string[]
+}
+export type cartType = {
+    productId: String | undefined,
+    name: String | undefined,
+    price: number | undefined,
+    imageLink: String | undefined,
+    qty: number | undefined
+}
+
+export interface GenralState {
+    isLoading: boolean,
+    isAuthenticated: boolean,
+    email: string,
+    name: string,
+    _id: string
 }

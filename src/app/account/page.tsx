@@ -10,9 +10,7 @@ function page() {
     const router = useRouter();
     const state = useAppSelector((state: any) => state.general.isAuthenticated)
     const dispatch = useAppDispatch();
-    if (!state) {
-        router.push('/')
-    }
+    
     const handleLogOut = () => {
         if (typeof localStorage !== 'undefined') {
             localStorage.removeItem('JWT_token')

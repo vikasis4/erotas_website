@@ -33,17 +33,17 @@ export default function Login({ state, setState, redux }: any) {
                 value={state.email}
                 onChange={(e) => setState({ ...state, email: e.target.value })}
                 placeholder="Enter Your Email"
-                className='outline-none p-2 rounded mb-4 font-poppin'
+                className='outline-none p-2 rounded mb-4 font-poppin shadow-md'
             />
             <button
                 onClick={handleSubmit}
-                className='mt-10 font-bold bg-red-600 text-white rounded py-2'>
+                className='mt-10 font-bold font-poppin text-2xl shadow-md bg-red-600 text-white rounded py-2'>
                 Submit
             </button>
-            <h1 className="pt-4 text-sm text-bold font-poppin" >Don't have an account ?</h1>
+            <h1 className="mt-8 text-md font-semibold font-poppin" >Don't have an account ?</h1>
             <h1
                 onClick={() => setState({ ...state, status: 'register' })}
-                className="hover:cursor-pointer text-sm text-bold font-poppin text-green-600">Register here</h1>
+                className="hover:cursor-pointer text-md font-semibold font-poppin text-green-700">Register here</h1>
         </>
     )
 }

@@ -6,7 +6,7 @@ import Timer from "./Timer";
 export default function Otp({ state, redux }: any) {
 
     const [otp, setOtp] = React.useState<any>();
-    const [count, setCount] = React.useState(60)
+    const [count, setCount] = React.useState(40)
 
 
     const handleSubmit = async () => {
@@ -28,8 +28,8 @@ export default function Otp({ state, redux }: any) {
         redux.dispatch(redux.setIsLoading(true))
         await axios.post(otpGenerateApi, { email: state.email }).then((response: any) => {
             if (response.data.status === 'true') {
+                setCount(40);
                 alert('OTP sent Successfully');
-                setCount(60);
             } else if (response.data.status === 'nouser') {
                 alert('No user found')
             } else {
@@ -46,14 +46,14 @@ export default function Otp({ state, redux }: any) {
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
                 placeholder="Enter Your 4-digit OTP"
-                className='outline-none p-2 rounded mb-4 font-poppin'
+                className='shadow-md outline-none p-2 rounded mb-4 font-poppin'
             />
 
             {
                 count === 0 ?
                     <h1
                         onClick={handleResend}
-                        className="text-sm text-green-600 font-medium font-poppin hover:cursor-pointer"
+                        className="text-md text-green-600 font-semibold font-poppin hover:cursor-pointer"
                     >Resend OTP</h1>
                     :
                     <Timer count={count} setCount={setCount} />
@@ -61,7 +61,7 @@ export default function Otp({ state, redux }: any) {
 
             <button
                 onClick={handleSubmit}
-                className='mt-10 font-bold font-poppin bg-red-600 text-white rounded py-2'>
+                className='mt-10 shadow-md text-2xl font-bold font-poppin bg-red-600 text-white rounded py-2'>
                 Submit
             </button>
         </>

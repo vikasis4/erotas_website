@@ -44,7 +44,7 @@ export default function Register({ setState, state, redux }: any) {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="Enter Your Name"
-                className='outline-none p-2 rounded mb-4 font-poppin'
+                className='shadow-md outline-none p-2 rounded mb-4 font-poppin'
             />
             <input
                 required
@@ -53,17 +53,17 @@ export default function Register({ setState, state, redux }: any) {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder="Enter Your Email"
-                className='outline-none p-2 rounded font-poppin'
+                className='shadow-md outline-none p-2 rounded font-poppin'
             />
             <button
                 onClick={handleSubmit}
-                className='mt-10 font-bold bg-red-600 text-white rounded py-2'>
+                className='mt-10 font-poppin text-2xl shadow-md font-bold bg-red-600 text-white rounded py-2'>
                 Submit
             </button>
-            <h1 className="pt-4 text-sm text-light font-poppin" >Already have an account ?</h1>
+            <h1 className="mt-8 text-md font-semibold font-poppin" >Already have an account ?</h1>
             <h1
                 onClick={() => setState({ ...state, status: 'login' })}
-                className="hover:cursor-pointer text-sm text-bold font-poppin text-green-600">Login here</h1>
+                className="hover:cursor-pointer text-md text-bold font-poppin font-semibold text-green-700">Login here</h1>
         </>
     )
 }

@@ -14,26 +14,27 @@ export default function Home() {
   return (
     <div className="flex flex-col text-xl  justify-center items-center">
 
-      <ul className="flex gap-8 py-12 font-poppin">
+      <ul className="flex font-medium lg:font-normal border-box w-full justify-around md:justify-center items-center lg:gap-28 py-12 font-poppin">
         <li>Soft Toys</li>
         <li>Clothing</li>
         <li>Home Decor</li>
       </ul>
 
-      <div className="flex gap-8 flex-col justify-center items-center text-white font-poppin bg-red-600 w-[60rem] py-20 rounded-xl shadow-lg">
+      <div 
+      className="flex w-[92%] gap-8 flex-col justify-center items-center text-white font-poppin bg-red-600 py-20 rounded-xl shadow-lg">
         <h1 className="text-2xl">Exclusive Teddy Sales Event</h1>
-        <h1 className="text-8xl">Upto 50% off</h1>
+        <h1 className="text-5xl lg:text-8xl font-bold lg:font-normalz">Upto 50% off</h1>
         <h1 className="text-2xl">Great deals at best price!</h1>
-        <div className="flex justify-center items-center gap-10 mt-16">
+        <div className="hidden lg:flex justify-center items-center gap-10 mt-16">
           <h1 className='hover:translate-y-[-1rem] duration-300 hover:cursor-pointer bg-white text-black p-4 rounded font-normal'>Soft Toys</h1>
           <h1 className='hover:translate-y-[-1rem] duration-300 hover:cursor-pointer bg-white text-black p-4 rounded font-normal'>Giant Teddy</h1>
           <h1 className='hover:translate-y-[-1rem] duration-300 hover:cursor-pointer bg-white text-black p-4 rounded font-normal'>Cute Teddy</h1>
         </div>
       </div>
 
-      <h1 className="font-poppin mt-24 text-6xl  mb-8">Top Products</h1>
+      <h1 className="font-poppin mt-24 text-5xl md:text-6xl  mb-8">Top Products</h1>
 
-      <div className="px-12 py-12 flex justify-center items-center gap-14 flex-wrap">
+      <div className="py-12 border-box px-4 flex justify-center items-center gap-14 flex-wrap">
         {
           isLoading ?
             <Image src={require('../assets/image/loader.gif')} alt="Loading..." height={100} width={100} />

@@ -21,11 +21,11 @@ function page() {
     if (general) {
         router.push('/')
     }
-    
+
     return (
-        <div className="flex flex-col justify-center items-center h-full bg-red-100">
-            <h1 className="text-3xl font-poppin">{state.status === 'login' ? 'Login with your credentials' : state.status === 'otp' ? 'Enter the OTP' : 'Becoma a Member'}</h1>
-            <div className="mt-12 flex flex-col">
+        <div className="flex flex-col justify-center items-center h-[80%]">
+            <h1 className="text-4xl font-poppin">{state.status === 'login' ? 'LogIn' : state.status === 'otp' ? 'OTP' : 'Create Account'}</h1>
+            <div className="mt-12 flex flex-col lg:w-[50%]">
                 {
                     state.status === 'register' ?
                         <Register redux={{ dispatch, setIsLoading }} setState={setState} state={state} />

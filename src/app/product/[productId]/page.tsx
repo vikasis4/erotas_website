@@ -34,15 +34,15 @@ export default function Page() {
                         <Image src={require('../../../assets/image/loader.gif')} className="rounded-xl" alt="Loading" height="200" width="200" />
                     </div>
                     :
-                    <div className="flex justify-between mt-12 ">
+                    <div className="flex lg:flex-row flex-col justify-between mt-12 gap-12 lg:gap-0">
 
-                        <div className=" flex flex-1 justify-center items-start gap-10">
-                            <div className="flex justify-center items-center gap-8 mt-12 flex-col">
+                        <div className="flex lg:flex-row border-box flex-col-reverse flex-1 justify-center items-center lg:items-start lg:gap-10">
+                            <div className="flex lg:flex-1 justify-center items-center gap-8 mt-12 lg:flex-col w-full">
                                 {
                                     data?.product.imagesLink.map((link, index) => {
                                         return (<div key={index}>
                                             <Image onClick={() => setCurrentImage(index)} loader={() => newLoader(index)} src={ProductBaseURL + data?.product.imagesLink[index]} alt="product" height="50" width="50"
-                                                className="rounded-xl h-20 w-20 shadow-lg hover:scale-[2.5] hover:cursor-pointer duration-300"
+                                                className="rounded-xl h-20 w-20 shadow-lg lg:hover:scale-[2.5] hover:cursor-pointer duration-300"
                                             />
                                         </div>)
                                     })
@@ -50,16 +50,16 @@ export default function Page() {
                             </div>
                             <div>
                                 <Image loader={myLoader} src={ProductBaseURL + data?.product.imagesLink[0]} alt="product" height="300" width="300"
-                                    className="rounded-xl shadow-lg"
+                                    className="rounded-xl shadow-lg lg:flex-3 lg:mr-24"
                                 />
                             </div>
                         </div>
 
-                        <div className="font-poppin flex-1 gap-10 flex flex-col justify-between items-center pr-4 pb-12">
+                        <div className="font-poppin text-center border-box px-4 flex-1 gap-10 flex flex-col justify-between items-center pr-4 pb-12">
                             <h1 className="font-semibold text-2xl" >{data?.product.name}</h1>
-                            <h1 className="font-bold text-xl text-green-500" >Price :- &#8377; {data?.product.price}</h1>
-                            <div className="flex gap-10">
-                                <button onClick={() => router.push('/cart')} className="bg-red-600 rounded hover:scale-125 duration-300 font-semibold text-white shadow py-2 px-8" >Go To Cart</button>
+                            <h1 className="font-bold text-3xl text-green-500" >Price :- &#8377; {data?.product.price}</h1>
+                            <div className="flex justify-around border-box w-full">
+                                <button onClick={() => router.push('/cart')} className="bg-red-600 rounded hover:scale-125 duration-300 font-semibold text-white shadow text-2xl p-4" >Go To Cart</button>
                                 <ProductConfig productId={id.productId} />
                             </div>
                             <h1>{data?.product.description}</h1>

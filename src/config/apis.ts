@@ -1,6 +1,11 @@
-export const baseUrl = 'http://localhost:3001/api/'
-export const otpVerifyApi = 'http://localhost:3001/api/auth/otp/verify'
-export const signUpApi = 'http://localhost:3001/api/auth/register'
-export const signInApi = 'http://localhost:3001/api/auth/login'
-export const otpGenerateApi = 'http://localhost:3001/api/auth/login'
-export const ProductBaseURL = 'http://localhost:3001/product/'
+const DevBase = 'http://localhost:3001'
+const PortBase = 'http://172.16.172.109:3001'
+const ProductionBase = '';
+const CurrentBase = PortBase
+
+export const baseUrl = CurrentBase + '/api/'
+export const otpVerifyApi = CurrentBase + '/api/auth/otp/verify'
+export const signUpApi = CurrentBase + '/api/auth/register'
+export const signInApi = CurrentBase + '/api/auth/login'
+export const otpGenerateApi = CurrentBase + '/api/auth/login'
+export const ProductBaseURL = CurrentBase + '/product/'

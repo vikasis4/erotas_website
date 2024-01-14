@@ -22,9 +22,7 @@ function page() {
 
     return (
         <>
-            <h1 className="text-4xl text-center my-12">Manage Your Cart</h1>
-
-            <div className="font-poppin my-24 h-fll w-full flex justify-center items-start p-8">
+            <div className="font-poppin my-12 h-fll w-full flex justify-center items-start px-8">
 
                 <div className="flex flex-1 flex-wrap justify-center items-center gap-6 ">
                     {
@@ -35,10 +33,11 @@ function page() {
                     }
                 </div>
 
-                <div className="flex-1 font-semibold text-2xl flex-col flex gap-10 justify-center items-center">
-                    <h1 className=""> Your Final Pricing is</h1>
-                    <h1 className=" text-green-600">&#8377; {priceCalc(data?.cart)} /-</h1>
-                    <button className="bg-green-600 text-white py-2 px-4 shadow-md rounded">Proceed To Pay</button>
+                <div className="flex-1 font-semibold lg:bg-[#F5F5F5] bg-red-600 text-2xl lg:flex-col flex gap-0  py-4 lg:gap-10 justify-around items-center lg:relative absolute bottom-0 w-full">
+                    <h1 className="hidden lg:block text-black">Total Price :</h1>
+                    <h1 className="lg:hidden text-white lg:text-black">Total - &nbsp; &#8377; {priceCalc(data?.cart)}</h1>
+                    <h1 className=" hidden lg:block text-white lg:text-green-600">&#8377; {priceCalc(data?.cart)}</h1>
+                    <button className="bg-white lg:bg-green-600 text-black lg:text-white py-2 px-4 shadow-md rounded">Proceed</button>
                 </div>
 
             </div>

@@ -34,7 +34,7 @@ export default function Home() {
 
       <h1 className="font-poppin mt-24 text-5xl md:text-6xl  mb-8">Top Products</h1>
 
-      <div className="py-12 border-box px-2 md:px-4 flex justify-center items-center gap-2 md:gap-14 flex-wrap">
+      <div className="py-12 border-box px-2 md:px-4 flex justify-center items-center gap-6 md:gap-14 flex-wrap">
         {
           isLoading ?
             <Image src={require('../assets/image/loader.gif')} alt="Loading..." height={100} width={100} />

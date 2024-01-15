@@ -29,7 +29,7 @@ function page() {
                         isLoading ?
                             <Loader />
                             :
-                            data?.cart.map((data: any) => <CartElementMap key={data._id} data={data} />)
+                            data?.cart?.map((data: any) => <CartElementMap key={data._id} data={data} />)
                     }
                     <div className="lg:hidden h-[10rem]"></div>
                 </div>

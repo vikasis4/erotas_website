@@ -8,7 +8,7 @@ function ProductConfig({ productId }: { productId: any }) {
   const cart = useGetCartQuery(userId);
   const removeCart = useRemoveFromcartMutation();
   const addCart = useAddToCartMutation();
-  var currentCart = cart.data?.cart.filter((current: any) => current.productId === productId);
+  var currentCart = cart.data?.cart?.filter((current: any) => current.productId === productId);
   var currentCartLenght = currentCart?.length;
 
   const addTocart = () => {

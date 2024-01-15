@@ -9,7 +9,7 @@ function Footer() {
 
   return (
     <>
-      <div className="p-12 w-full flex-col lg:flex-row mt-12 bg-red-100 flex justify-between items-center">
+      <div className="p-12 w-full gap-12 flex-col lg:flex-row mt-12 bg-red-100 flex justify-between items-center">
         <Image src={require('../assets/icon/logo.jpg')} alt="erota" height="200" width="200"
           className="rounded-md shadow-md " />
         <div className="font-poppin">
@@ -23,9 +23,9 @@ function Footer() {
           </ul>
         </div>
         <div className="flex justify-center items-center gap-8">
-          <Image className="hover:cursor-pointer" alt="arotas" width={30} height={30} src={require('../assets/icon/insta.png')} />
-          <Image className="hover:cursor-pointer" alt="arotas" width={30} height={30} src={require('../assets/icon/twit.png')} />
-          <Image className="hover:cursor-pointer" alt="arotas" width={30} height={30} src={require('../assets/icon/tele.png')} />
+          <Image className="hover:cursor-pointer" alt="arotas" width={40} height={40} src={require('../assets/icon/insta.png')} />
+          <Image className="hover:cursor-pointer" alt="arotas" width={40} height={40} src={require('../assets/icon/twit.png')} />
+          <Image className="hover:cursor-pointer" alt="arotas" width={40} height={40} src={require('../assets/icon/tele.png')} />
         </div>
       </div>
       <h1 className="bg-red-100 text-center font-poppin">All rights reserved @2024 erotas.in</h1>

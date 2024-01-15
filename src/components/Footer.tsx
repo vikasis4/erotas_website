@@ -9,7 +9,7 @@ function Footer() {
 
   return (
     <>
-      <div className="p-12 w-full mt-12 bg-red-100 flex justify-between items-center">
+      <div className="p-12 w-full flex-col lg:flex-row mt-12 bg-red-100 flex justify-between items-center">
         <Image src={require('../assets/icon/logo.jpg')} alt="erota" height="200" width="200"
           className="rounded-md shadow-md " />
         <div className="font-poppin">

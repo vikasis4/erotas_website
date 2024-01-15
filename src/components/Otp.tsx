@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -9,16 +10,14 @@ export default function Otp({ state, redux }: any) {
     const [otp, setOtp] = React.useState<any>();
     const [count, setCount] = React.useState(40);
     const router = useRouter();
-
-
+    
+    
     const handleSubmit = async () => {
         redux.dispatch(redux.setIsLoading(true))
         await axios.post(otpVerifyApi, { otp, email: state.email }).then(response => {
             if (response.data.status === 'true') {
                 localStorage.setItem('JWT_token', response.data.token);
-                router.refresh();
-                router.push('/');
-                alert('Reload Your page to Login In')
+                location.reload()
             } else if (response.data.status === 'false') {
                 alert('Wrong OTP')
             } else {
@@ -50,7 +49,7 @@ export default function Otp({ state, redux }: any) {
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
                 placeholder="Enter Your 4-digit OTP"
-                className='shadow-md outline-none p-2 rounded mb-4 font-poppin'
+                className='shadow-md outline-none p-4 font-medium rounded mb-4 font-poppin'
             />
 
             {
@@ -65,7 +64,7 @@ export default function Otp({ state, redux }: any) {
 
             <button
                 onClick={handleSubmit}
-                className='mt-10 shadow-md text-2xl font-bold font-poppin bg-red-600 text-white rounded py-2'>
+                className='mt-10 shadow-md text-2xl font-bold font-poppin bg-red-600 text-white rounded py-4'>
                 Submit
             </button>
         </>

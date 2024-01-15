@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useRouter } from 'next/navigation' 
+import { useRouter } from 'next/navigation'
 import React from 'react'
 import { ProductBaseURL } from '@/config/apis'
 
@@ -12,13 +12,16 @@ function ProductMap({ data }: any) {
     }
 
     return (
-        <div onClick={() => router.push(`/product/${productId}`)} 
-        className=" hover:cursor-pointer flex flex-col justify-center items-center w-[90%] shadow-md md:w-[40%] py-4 overflow-hidden rounded-xl bg-white md:hover:scale-125 duration-300 ">
-            <Image loader={myLoader} src={ProductBaseURL + imagesLink[0]} alt="Product" height={100} width={100} />
+        <div
+            className=" hover:cursor-pointer flex flex-col justify-center items-center w-[90%] shadow-md md:w-[40%] py-4 overflow-hidden rounded-xl bg-white md:hover:scale-125 font-poppin duration-300 ">
+            <Image loader={myLoader} src={ProductBaseURL + imagesLink[0]} alt="Product" height={150} width={150} />
             <div className="px-4 bg-white">
-                <h1 className="text-xs md:text-lg font-poppin text-black text-center py-1">{name}</h1>
-                <h1 className="text-xl md:text-2xl font-poppin font-normal  text-green-700 text-center py-1">&#8377; {price} /-</h1>
+                <h1 className="text-md md:text-lg font-poppin font-medium text-black text-center py-1">{name}</h1>
+                <h1 className="text-2xl md:text-2xl font-poppin font-medium  text-green-700 text-center py-1">&#8377; {price} /-</h1>
             </div>
+            <button onClick={() => router.push(`/product/${productId}`)}
+                className='bg-red-600 rounded my-4 shadow-md font-medium py-2 px-4 text-white'
+            >View Product</button>
         </div>
     )
 }

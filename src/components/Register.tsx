@@ -24,7 +24,6 @@ export default function Register({ setState, state, redux }: any) {
         redux.dispatch(redux.setIsLoading(true))
         await axios.post(signUpApi, form).then((response) => {
             if (response.data.status === 'true') {
-                alert('Account created successfully');
                 setState({ email: form.email, status: 'otp' })
             } else if (response.data.status === 'user') {
                 alert('Account with this Email already exsists');
@@ -44,7 +43,7 @@ export default function Register({ setState, state, redux }: any) {
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="Enter Your Name"
-                className='shadow-md outline-none p-2 rounded mb-4 font-poppin'
+                className='shadow-md outline-none p-4 font-medium rounded mb-4 font-poppin'
             />
             <input
                 required
@@ -53,11 +52,11 @@ export default function Register({ setState, state, redux }: any) {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 placeholder="Enter Your Email"
-                className='shadow-md outline-none p-2 rounded font-poppin'
+                className='shadow-md outline-none p-4 font-medium rounded font-poppin'
             />
             <button
                 onClick={handleSubmit}
-                className='mt-10 font-poppin text-2xl shadow-md font-bold bg-red-600 text-white rounded py-2'>
+                className='mt-10 font-poppin text-2xl shadow-md font-bold bg-red-600 text-white rounded py-4'>
                 Submit
             </button>
             <h1 className="mt-8 text-md font-semibold font-poppin" >Already have an account ?</h1>

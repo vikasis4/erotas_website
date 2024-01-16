@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import axios from 'axios';
+import { baseUrl } from '@/config/apis';
 
 // order_NPD77r5mh2jKWv
 
@@ -10,13 +11,13 @@ function page() {
 
     const paynow = async () => {
         var orderId = ''
-         await axios.post('http://localhost:3001/api/pay/order', {}).then(response => {
-        orderId = response.data.order.id
+        await axios.post(baseUrl + 'pay/order', {}).then(response => {
+            orderId = response.data.order.id
         })
-        
+
         var options: any = {
             "key": "rzp_live_14f793Ecrb21Gi",
-            "amount": "100", 
+            "amount": "100",
             "currency": "INR",
             "name": "Acme Corp",
             "description": "Test Transaction",

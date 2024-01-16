@@ -1,29 +1,12 @@
 'use client'
 import Image from 'next/image'
 import React from 'react'
-import { useAppSelector, useAppDispatch } from '@/redux/hooks'
-import { setIsLoading, setUserInfo } from '@/redux/slice/general/index'
-import { useFetchUserQuery } from '@/redux/slice/user/index'
-import { getJWTtoken } from '../utils/getJWTtoken'
+import { useAppSelector } from '@/redux/hooks'
+
 
 function Loader() {
 
     const general = useAppSelector((state) => state.general)
-    const dispatch = useAppDispatch()
-
-    const token = getJWTtoken()
-    const { data, isLoading, refetch } = useFetchUserQuery(token);
-    
-    
-    React.useEffect(()=>{
-        dispatch(setIsLoading(isLoading));
-        if (data?.status === 'true') {
-            dispatch(setUserInfo(data?.data))            
-        }else if (data?.status === 'error'){
-            alert('Something went wrong while signing in, logout and signIn')
-        }
-    },[isLoading]);
-
 
     return (
         <>

@@ -4,29 +4,22 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useAppSelector } from '@/redux/hooks'
-import { useGetCartQuery } from '@/redux/slice/cart'
-
 
 function RightBar(router: any) {
 
   const general = useAppSelector((state) => state.general);
-  const userId = useAppSelector((state) => state.general._id);
-  const { data } = useGetCartQuery(userId);
-
-
-
 
   return (
     <div className="flex md:w-full font-poppin justify-center items-center gap-4 md:gap-6 relative">
       <div className="flex flex-col justify-center items-center">
         {general.isAuthenticated ?
-          <Image onClick={()=> router.router.push('/account')} src={require('../assets/icon/user.png')} alt='erota' height='50' width='50' className='shadow-md rounded-full' />
+          <Image onClick={()=> router.router.push('/account')} src={require('../assets/icon/user.png')} alt='erota' height='50' width='50' className='lg:hover:cursor-pointer shadow-md rounded-full' />
           :
           <h1 className="hover:cursor-pointer  text-black font-medium text-2xl" onClick={() => router.router.push('/auth')}>SignUp</h1>}
       </div>
       <div className="hover:cursor-pointer relative">
         <Image onClick={() => router.router.push('/cart')} alt="arotas" width={40} height={40} src={require('../assets/icon/cart.png')} />
-        <h1 className="absolute font-poppin bottom-9 left-7 text-red-500 font-bold">{general.isAuthenticated ? data?.cart?.length : 0}</h1>
+        <h1 className="absolute font-poppin bottom-9 left-7 text-red-500 font-bold">{general.isAuthenticated ? general.cart.length : 0}</h1>
       </div>
     </div>
   )

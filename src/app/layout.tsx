@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import StoreProvider from './StoreProvider'
 import Loader from '@/components/Loader'
 import Footer from '@/components/Footer'
+import Initialize from '@/components/Initialize'
 
 const poppins = Poppins({
   weight: ['200', '300', '400', '500', '600', '700', '800'],
@@ -38,6 +39,7 @@ export default function RootLayout({
             {children}
             <Loader />
             <Footer />
+            <Initialize />
           </StoreProvider>
           <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
         </body>

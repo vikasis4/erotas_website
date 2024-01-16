@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { GenralState } from '@/redux/types'
+import { cartType } from '../../types';
 
 const initialState: GenralState = {
     isLoading: false,
     isAuthenticated: false,
     email: '',
     name: '',
-    _id: ''
+    _id: '',
+    cart: []
 }
 
 export const generalSlice = createSlice({
@@ -28,10 +30,13 @@ export const generalSlice = createSlice({
             state.name = action.payload.name
             state._id = action.payload._id
             state.isAuthenticated = true
+        },
+        setCart: (state, action: PayloadAction<cartType[]>) => {
+            state.cart = action.payload
         }
     },
 })
 
-export const { setIsLoading, setLogOut, setUserInfo } = generalSlice.actions
+export const { setIsLoading, setLogOut, setUserInfo, setCart } = generalSlice.actions
 
 export default generalSlice.reducer

@@ -28,5 +28,6 @@ export interface GenralState {
     isAuthenticated: boolean,
     email: string,
     name: string,
-    _id: string
+    _id: string,
+    cart: cartType[]
 }

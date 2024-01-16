@@ -13,7 +13,7 @@ function ProductMap({ data }: any) {
 
     return (
         <div
-            className=" hover:cursor-pointer flex flex-col justify-center items-center w-[90%] shadow-md md:w-[40%] py-4 overflow-hidden rounded-xl bg-white md:hover:scale-125 font-poppin duration-300 ">
+            className="flex flex-col justify-center items-center w-[90%] shadow-md md:w-[40%] py-4 overflow-hidden rounded-xl bg-white font-poppin">
             <Image loader={myLoader} src={ProductBaseURL + imagesLink[0]} alt="Product" height={150} width={150} />
             <div className="px-4 bg-white">
                 <h1 className="text-md md:text-lg font-poppin font-medium text-black text-center py-1">{name}</h1>

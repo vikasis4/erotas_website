@@ -3,11 +3,12 @@ import React from 'react'
 import Logout from '@/components/Logout'
 import { useAppSelector } from '@/redux/hooks'
 import Image from 'next/image';
-
+import { useRouter } from 'next/navigation';
 
 function page() {
 
     var general = useAppSelector((state) => state.general);
+    const router = useRouter()
 
 
     return (
@@ -16,9 +17,9 @@ function page() {
             <h1 className="font-semibold">Email :- {general.email}</h1>
             <div className="flex relative mt-2">
                 <h1 className="font-semibold">Delivery Address :- none</h1>
-                <Image className="absolute bottom-3 right-[-1.4rem]" src={require('../../assets/icon/edit.png')} alt="erota" height="20" width="20" />
+                <Image onClick={()=> router.push('/address')} className="absolute bottom-3 right-[-1.4rem]" src={require('../../assets/icon/edit.png')} alt="erota" height="20" width="20" />
             </div>
-            <h1 className="font-semibold bg-red-600 rounded-md px-8 py-2 text-white shadow-lg">Customer Support</h1>
+            <h1 onClick={()=> router.push('/address')} className="font-semibold bg-red-600 rounded-md px-8 py-2 text-white shadow-lg">Customer Support</h1>
             <h1 className="font-semibold bg-red-600 rounded-md px-8 py-2 text-white shadow-lg">See Your Orders</h1>
             <Logout />
         </div>

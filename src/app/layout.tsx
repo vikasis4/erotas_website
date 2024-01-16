@@ -7,7 +7,7 @@ import Loader from '@/components/Loader'
 import Footer from '@/components/Footer'
 
 const poppins = Poppins({
-  weight: ['200','300', '400','500','600', '700','800'],
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
   display: 'swap',
@@ -30,15 +30,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${roboto_mono.variable}`}>
-      <body>
-        <StoreProvider>
-          <Navbar />
-          {children}
-          <Loader />
-          <Footer />
-        </StoreProvider>
-      </body>
-    </html>
+    <>
+      <html lang="en" className={`${poppins.variable} ${roboto_mono.variable}`}>
+        <body>
+          <StoreProvider>
+            <Navbar />
+            {children}
+            <Loader />
+            <Footer />
+          </StoreProvider>
+          <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        </body>
+      </html>
+    </>
   )
 }

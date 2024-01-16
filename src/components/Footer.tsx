@@ -28,7 +28,7 @@ function Footer() {
           <Image className="hover:cursor-pointer" alt="arotas" width={40} height={40} src={require('../assets/icon/tele.png')} />
         </div>
       </div>
-      <h1 className="bg-red-100 text-center font-poppin">All rights reserved @2024 erotas.in</h1>
+      <h1 className="bg-red-300 text-xs font-medium text-center font-poppin">All rights reserved @2024 erotas.in</h1>
     </>
   )
 }

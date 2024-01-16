@@ -13,16 +13,20 @@ function RightBar(router: any) {
   const userId = useAppSelector((state) => state.general._id);
   const { data } = useGetCartQuery(userId);
 
-  var path = general.isAuthenticated ? '/account' : '/auth';
-  
+
 
 
   return (
-    <div className="flex md:w-full font-poppin justify-center items-center gap-2 md:gap-6 relative">
-      <h1 className="hover:cursor-pointer  text-black font-semibold text-2xl" onClick={() => router.router.push(path)}>{general.isAuthenticated ? general.name : 'SignUp'}</h1>
+    <div className="flex md:w-full font-poppin justify-center items-center gap-4 md:gap-6 relative">
+      <div className="flex flex-col justify-center items-center">
+        {general.isAuthenticated ?
+          <Image onClick={()=> router.router.push('/account')} src={require('../assets/icon/user.png')} alt='erota' height='50' width='50' className='shadow-md rounded-full' />
+          :
+          <h1 className="hover:cursor-pointer  text-black font-medium text-2xl" onClick={() => router.router.push('/auth')}>SignUp</h1>}
+      </div>
       <div className="hover:cursor-pointer relative">
-        <Image onClick={() => router.router.push('/cart')} alt="arotas" width={30} height={30} src={require('../assets/icon/cart.png')} />
-        <h1 className="absolute font-poppin bottom-6 left-7 text-red-500 font-bold">{general.isAuthenticated ? data?.cart?.length : 0}</h1>
+        <Image onClick={() => router.router.push('/cart')} alt="arotas" width={40} height={40} src={require('../assets/icon/cart.png')} />
+        <h1 className="absolute font-poppin bottom-9 left-7 text-red-500 font-bold">{general.isAuthenticated ? data?.cart?.length : 0}</h1>
       </div>
     </div>
   )

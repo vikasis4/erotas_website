@@ -3,19 +3,19 @@
 import React from 'react'
 import { setIsLoading, setUserInfo, setCart } from '@/redux/slice/general/index'
 import { useFetchUserQuery } from '@/redux/slice/user/index'
-import { getJWTtoken } from '../utils/getJWTtoken'
+import { getJWTtoken } from '@/utils/getJWTtoken'
 import { useAppDispatch } from '@/redux/hooks'
 import { useGetCartQuery } from '@/redux/slice/cart'
 
-function Initialize() {
+function HandleRTK() {
 
     const dispatch = useAppDispatch()
     const token = getJWTtoken()
     const user = useFetchUserQuery(token);
-    const cart = useGetCartQuery(user.data?.data._id);
+    const cart = useGetCartQuery(user.data?.info._id);
 
 
-    React.useEffect(() => {        
+    React.useEffect(() => {
         if (cart.data?.status === 'true') {
             dispatch(setCart(cart.data?.cart))
         } else if (user.data?.status === 'error') {
@@ -24,19 +24,16 @@ function Initialize() {
     }, [cart.status])
 
     React.useEffect(() => {
-        dispatch(setIsLoading(user.isLoading));
+        // dispatch(setIsLoading(user.isLoading));
         if (user.data?.status === 'true') {
-            dispatch(setUserInfo(user.data?.data))
+            dispatch(setUserInfo(user.data?.info))
         } else if (user.data?.status === 'error') {
             alert('Something went wrong while signing in, logout and signIn')
         }
     }, [user.isLoading]);
 
 
-    return (
-        <>
-        </>
-    )
+    return null
 }
 
-export default Initialize
+export default HandleRTK

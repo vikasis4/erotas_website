@@ -6,7 +6,7 @@ export const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
     endpoints: (builder) => ({
-        fetchUser: builder.query<{ status: string, data: userTypes }, string | null >({
+        fetchUser: builder.query<{ status: string, info: userTypes }, string | null >({
             query: (token) => `auth/token/${token}`,
         }),
     }),

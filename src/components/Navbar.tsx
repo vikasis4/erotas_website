@@ -9,11 +9,12 @@ function RightBar(router: any) {
 
   const general = useAppSelector((state) => state.general);
 
+
   return (
     <div className="flex md:w-full font-poppin justify-center items-center gap-4 md:gap-6 relative">
       <div className="flex flex-col justify-center items-center">
         {general.isAuthenticated ?
-          <Image onClick={()=> router.router.push('/account')} src={require('../assets/icon/user.png')} alt='erota' height='50' width='50' className='lg:hover:cursor-pointer shadow-md rounded-full' />
+          <Image onClick={() => router.router.push('/account')} src={require('../assets/icon/user.png')} alt='erota' height='50' width='50' className='lg:hover:cursor-pointer shadow-md rounded-full' />
           :
           <h1 className="hover:cursor-pointer  text-black font-medium text-2xl" onClick={() => router.router.push('/auth')}>SignUp</h1>}
       </div>

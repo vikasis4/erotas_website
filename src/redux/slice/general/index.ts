@@ -9,7 +9,8 @@ const initialState: GenralState = {
     email: '',
     name: '',
     _id: '',
-    cart: []
+    cart: [],
+    wishList:[]
 }
 
 export const generalSlice = createSlice({
@@ -25,7 +26,7 @@ export const generalSlice = createSlice({
             state._id = ''
             state.isAuthenticated = false
         },
-        setUserInfo: (state, action: PayloadAction<{ name: string, email: string, _id: string }>) => {
+        setUserInfo: (state, action: PayloadAction<{ name: string, email: string, _id: string }>) => {            
             state.email = action.payload.email
             state.name = action.payload.name
             state._id = action.payload._id

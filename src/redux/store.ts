@@ -3,18 +3,20 @@ import accountReducer from '@/redux/slice/general/index';
 import { userApi } from './slice/user';
 import { productsApi } from './slice/products';
 import { cartApi } from './slice/cart';
+import { addressApi } from './slice/address/api';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-        general:accountReducer,
-        [userApi.reducerPath]: userApi.reducer,
-        [productsApi.reducerPath]: productsApi.reducer,
-        [cartApi.reducerPath]: cartApi.reducer
+      general: accountReducer,
+      [userApi.reducerPath]: userApi.reducer,
+      [productsApi.reducerPath]: productsApi.reducer,
+      [cartApi.reducerPath]: cartApi.reducer,
+      [addressApi.reducerPath]: addressApi.reducer,
     },
 
     middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(userApi.middleware, productsApi.middleware, cartApi.middleware),
+      getDefaultMiddleware().concat(userApi.middleware, productsApi.middleware, cartApi.middleware),
   })
 }
 

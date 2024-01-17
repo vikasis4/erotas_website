@@ -23,11 +23,22 @@ export type cartType = {
     qty: number | undefined
 }
 
+
+export type AddressType = {
+    address: string,
+    pincode: number,
+    city: string,
+    state: string,
+    phone: number,
+    landMark: string
+}
+
 export interface GenralState {
     isLoading: boolean,
     isAuthenticated: boolean,
     email: string,
     name: string,
     _id: string,
-    cart: cartType[]
+    cart: cartType[],
+    wishList: { productId: string }[]
 }

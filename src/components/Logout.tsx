@@ -1,19 +1,17 @@
 import React from 'react'
-import { setLogOut } from '@/redux/slice/general'
-import { useAppDispatch } from "@/redux/hooks"
 import { useRouter } from 'next/navigation'
-
+import useSetAuth from '@/hooks/useSetAuth';
 
 function Logout() {
 
     const router = useRouter();
-    const dispatch = useAppDispatch();
+    const setAuht = useSetAuth();
 
     const handleLogOut = () => {
         if (typeof localStorage !== 'undefined') {
             localStorage.removeItem('JWT_token')
         };
-        dispatch(setLogOut());
+        setAuht(false)
         router.refresh();
         router.push('/');
     }

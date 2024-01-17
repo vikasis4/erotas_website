@@ -3,8 +3,8 @@ import useGeneral from '@/hooks/useGeneral'
 
 const useCheckAuth = () => {
 
+    var { isAuthenticated } = useGeneral();
     const checkAuth = () => {
-        var { isAuthenticated } = useGeneral();
         if (!isAuthenticated) {
             alert('Not Auntheticated');
             return false

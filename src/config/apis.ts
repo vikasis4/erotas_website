@@ -2,7 +2,7 @@ const DevBase = 'http://localhost:3001'
 const PortBase = 'http://172.16.172.109:3001'
 const ProductionBase = 'https://erotasbackend-production.up.railway.app';
 var prod = true;
-const CurrentBase = prod ? ProductionBase : PortBase;
+const CurrentBase = !prod ? ProductionBase : PortBase;
 
 export const baseUrl = CurrentBase+'/api/'
 export const otpVerifyApi = CurrentBase+'/api/auth/otp/verify'

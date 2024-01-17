@@ -1,5 +1,5 @@
 'use client'
-import useGeneral from '@/hooks/useGeneral'
+import useGeneral from '@/hooks/general/useGeneral'
 
 const useCheckAuth = () => {
 

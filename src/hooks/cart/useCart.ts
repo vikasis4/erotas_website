@@ -2,7 +2,7 @@
 import { useGetCartQuery } from '@/redux/slice/cart'
 import useLoading from "@/hooks/useLoading";
 import useApiResult from "@/hooks/useApiResult";
-import useUser from '@/hooks/useUser'
+import useUser from '@/hooks/user/useUser'
 import React from 'react';
 
 const useCart = () => {
@@ -11,8 +11,6 @@ const useCart = () => {
     const setLoading = useLoading()
     var validStatus = useApiResult();
     const { data, isLoading, isFetching } = useGetCartQuery(userId);
-
-    // console.log(isFetching);
     
     React.useEffect(() => {
         setLoading(isLoading)

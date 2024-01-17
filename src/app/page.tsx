@@ -3,12 +3,11 @@
 import ProductMap from '@/components/ProductMap';
 import React from 'react';
 import Image from 'next/image';
-import { useFetchProductsQuery } from '@/redux/slice/products/index'
+import useProducts from '@/hooks/products/useProducts';
 
 export default function Home() {
 
-  const { isLoading, data } = useFetchProductsQuery('');
-  var product = data?.product;
+  const { isLoading, products } = useProducts();
 
 
   return (
@@ -39,7 +38,7 @@ export default function Home() {
           isLoading ?
             <Image src={require('../assets/image/loader.gif')} alt="Loading..." height={100} width={100} />
             :
-            product?.map(product => { return <ProductMap key={product.productId} data={product} /> })
+            products?.map(product => { return <ProductMap key={product.productId} data={product} /> })
         }
       </div>
     </div>

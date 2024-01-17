@@ -4,7 +4,7 @@ import React from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import useCart from '@/hooks/cart/useCart'
-import useGeneral from '@/hooks/useGeneral'
+import useGeneral from '@/hooks/general/useGeneral'
 
 function RightBar(router: any) {
 

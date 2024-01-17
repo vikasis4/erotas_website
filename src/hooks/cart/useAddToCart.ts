@@ -3,7 +3,7 @@ import useCheckAuth from '@/hooks/useCheckAuth';
 import { useAddToCartMutation } from '@/redux/slice/cart';
 import useLoading from "@/hooks/useLoading";
 import useApiResult from "@/hooks/useApiResult";
-import useUser from '@/hooks/useUser'
+import useUser from '@/hooks/user/useUser'
 
 const useAddTocart = () => {
 

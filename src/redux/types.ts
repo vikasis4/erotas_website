@@ -35,10 +35,5 @@ export type AddressType = {
 
 export interface GenralState {
     isLoading: boolean,
-    isAuthenticated: boolean,
-    email: string,
-    name: string,
-    _id: string,
-    cart: cartType[],
-    wishList: { productId: string }[]
+    isAuthenticated: boolean
 }

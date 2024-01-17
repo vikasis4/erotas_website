@@ -10,8 +10,10 @@ const useCart = () => {
     var { userId } = useUser()
     const setLoading = useLoading()
     var validStatus = useApiResult();
-    const { data, isLoading } = useGetCartQuery(userId);
+    const { data, isLoading, isFetching } = useGetCartQuery(userId);
 
+    // console.log(isFetching);
+    
     React.useEffect(() => {
         setLoading(isLoading)
     }, [isLoading])

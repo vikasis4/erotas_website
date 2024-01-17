@@ -4,11 +4,13 @@ import React from "react"
 const useApiResult = () => {
 
     const validStatus = (status: string | undefined) => {
-        if (status === 'true') {
-            return true
-        } else {
-            alert('New System, went wrong')
-            return false
+        if (status) {
+            if (status === 'true') {
+                return true
+            } else {
+                alert('API STATUS NOT TRUE');
+                return false
+            }
         }
     }
 

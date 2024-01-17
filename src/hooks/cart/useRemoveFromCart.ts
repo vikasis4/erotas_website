@@ -8,12 +8,13 @@ const useRemoveFromCart = () => {
 
     var { userId } = useUser()
     const setLoading = useLoading()
-    var auth_check = useCheckAuth();
+    var checkAuth = useCheckAuth();
     var validStatus = useApiResult();
     const removeCart = useRemoveFromcartMutation();
 
     
     const removeFromCart = async (productId: string) => {
+        var auth_check = checkAuth()
         if (!auth_check) { return }
         setLoading(true)
         var res: any = await removeCart[0]({ userId, productId })

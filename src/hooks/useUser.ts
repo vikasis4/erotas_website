@@ -9,8 +9,9 @@ const useUser = () => {
 
     const token = getJWTtoken()
     const setLoading = useLoading()
+    const validStatus = useApiResult()
     const { data, isLoading } = useFetchUserQuery(token);
-    var result = useApiResult(data?.status);
+    var result = validStatus(data?.status);
 
     React.useEffect(() => {
         setLoading(isLoading)

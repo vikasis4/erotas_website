@@ -8,13 +8,14 @@ import useUser from '@/hooks/useUser'
 const useAddTocart = () => {
 
     var { userId } = useUser()
-    var auth_check = useCheckAuth();
+    var checkAuth = useCheckAuth();
     const setLoading = useLoading();
     var validStatus = useApiResult();
     const addCart = useAddToCartMutation();
 
 
     const addToCart = async (productId: string) => {
+        var auth_check = checkAuth()
         if (!auth_check) { return }
         setLoading(true)
         var res: any = await addCart[0]({ userId, productId });

@@ -10,12 +10,11 @@ function page() {
 
     const cart = useCart();
     const router = useRouter();
-    const Razorpay = useRazorpay();
     const [addressSelected, setAddressSelected] = React.useState(false);
 
     React.useEffect(() => {
         if (cart.length === 0) {
-            // router.push('/cart')
+            router.push('/cart')
         }
     }, [])
 

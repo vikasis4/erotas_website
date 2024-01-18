@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { otpVerifyApi, otpGenerateApi } from '@/config/apis';
-import Timer from "./Timer";
+import Timer from "../Timer";
 
 export default function Otp({ state, redux }: any) {
 

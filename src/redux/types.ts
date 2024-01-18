@@ -25,7 +25,7 @@ export type cartType = {
 
 
 export type AddressType = {
-    _id:string
+    _id: string
     address: string,
     pincode: number,
     city: string,
@@ -36,5 +36,6 @@ export type AddressType = {
 
 export interface GenralState {
     isLoading: boolean,
-    isAuthenticated: boolean
+    isAuthenticated: boolean,
+    delivery_address: AddressType
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductConfig from '@/components/ProductConfig';
+import ProductConfig from '@/components/product/ProductConfig';
 import { ProductBaseURL } from '@/config/apis';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';

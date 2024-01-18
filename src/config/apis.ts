@@ -6,6 +6,8 @@ const CurrentBase = prod ? ProductionBase : PortBase;
 
 export const baseUrl = CurrentBase+'/api/'
 export const otpVerifyApi = CurrentBase+'/api/auth/otp/verify'
+export const rzpCallBack = CurrentBase+'/api/pay/handlePayment'
+export const rzpOrder = CurrentBase+'/api/pay/order'
 export const signUpApi = CurrentBase+'/api/auth/register'
 export const signInApi = CurrentBase+'/api/auth/login'
 export const otpGenerateApi = CurrentBase+'/api/auth/login'

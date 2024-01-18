@@ -16,7 +16,7 @@ function ProductMap({ data }: any) {
             className="flex flex-col justify-center items-center w-[90%] shadow-md md:w-[40%] py-4 overflow-hidden rounded-xl bg-white font-poppin">
             <Image loader={myLoader} src={ProductBaseURL + imagesLink[0]} alt="Product" height={150} width={150} />
             <div className="px-4 bg-white">
-                <h1 className="text-md md:text-lg font-poppin font-medium text-black text-center py-1">{name}</h1>
+                <h1 className="text-sm md:text-lg font-poppin font-medium text-black text-center py-1">{name}</h1>
                 <h1 className="text-2xl md:text-2xl font-poppin font-medium  text-green-700 text-center py-1">&#8377; {price} /-</h1>
             </div>
             <button onClick={() => router.push(`/product/${productId}`)}

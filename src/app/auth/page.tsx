@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { useRouter } from 'next/navigation'
-import Register from '@/components/Register';
-import Otp from '@/components/Otp';
-import Login from '@/components/Login'
+import Register from '@/components/auth/Register';
+import Otp from '@/components/auth/Otp';
+import Login from '@/components/auth/Login'
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setIsLoading } from '@/redux/slice/general/index'
 

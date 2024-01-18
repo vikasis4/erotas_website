@@ -3,7 +3,7 @@ import { useParams, useRouter } from "next/navigation"
 import React from "react";
 import Image from "next/image";
 import { ProductBaseURL } from "@/config/apis";
-import ProductConfig from "@/components/ProductConfig";
+import ProductConfig from "@/components/product/ProductConfig";
 import useGetProduct from "@/hooks/products/useGetProduct";
 
 export default function Page() {

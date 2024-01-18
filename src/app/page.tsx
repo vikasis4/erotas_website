@@ -1,9 +1,10 @@
 "use client"
 
-import ProductMap from '@/components/ProductMap';
+import ProductMap from '@/components/product/ProductMap';
 import React from 'react';
 import Image from 'next/image';
 import useProducts from '@/hooks/products/useProducts';
+import { loader } from '@/config/images';
 
 export default function Home() {
 
@@ -36,7 +37,7 @@ export default function Home() {
       <div className="py-12 border-box px-2 md:px-4 flex justify-center items-center gap-6 md:gap-14 flex-wrap">
         {
           isLoading ?
-            <Image src={require('../assets/image/loader.gif')} alt="Loading..." height={100} width={100} />
+            <Image src={loader} alt="Loading..." height={100} width={100} />
             :
             products?.map(product => { return <ProductMap key={product.productId} data={product} /> })
         }

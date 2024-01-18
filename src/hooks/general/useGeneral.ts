@@ -2,9 +2,9 @@
 import { useAppSelector } from '@/redux/hooks'
 
 const useGeneral = () => {
-    const { isLoading, isAuthenticated } = useAppSelector((state) => state.general);
+    const { isLoading, isAuthenticated, delivery_address } = useAppSelector((state) => state.general);
 
-    return { isLoading, isAuthenticated }
+    return { isLoading, isAuthenticated, delivery_address }
 }
 
 export default useGeneral;

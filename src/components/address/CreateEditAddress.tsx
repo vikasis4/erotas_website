@@ -5,6 +5,7 @@ import useAddAddress from '@/hooks/address/useAddAddress';
 import addressCheck from '@/utils/addressCheck';
 import useEditAddress from '@/hooks/address/useEditAddress';
 import Image from 'next/image';
+import { close } from '@/config/images';
 
 function CreateEditAddress({ setShowConfig, data }: any) {
 
@@ -41,7 +42,7 @@ function CreateEditAddress({ setShowConfig, data }: any) {
 
   return (
     <div className="flex relative bg-red-100 rounded-lg shadow-lg flex-col gap-6 px-8 py-12 justify-center items-center">
-      <Image onClick={() => setShowConfig(false)} className="absolute top-4 right-4 lg:hover:cursor-pointer" src={require('../assets/icon/close.png')} alt="erota" height="25" width="25" />
+      <Image onClick={() => setShowConfig(false)} className="absolute top-4 right-4 lg:hover:cursor-pointer" src={close} alt="erota" height="25" width="25" />
       <InputTag
         title='address'
         name='address'

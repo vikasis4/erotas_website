@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import {tele, twit, insta, logo} from '@/config/images'
 
 function Footer() {
 
@@ -10,8 +11,7 @@ function Footer() {
   return (
     <>
       <div className="p-12 w-full gap-12 flex-col lg:flex-row mt-12 bg-red-100 flex justify-between items-center">
-        <Image src={require('../assets/icon/logo.jpg')} alt="erota" height="200" width="200"
-          className="rounded-md shadow-md " />
+        <Image src={logo} alt="erota" height="200" width="200" />
         <div className="font-poppin">
           <h1 className="font-bold text-2xl pb-8 underline">Useful Links</h1>
           <ul className="font-semibold flex flex-col gap-2">
@@ -23,9 +23,9 @@ function Footer() {
           </ul>
         </div>
         <div className="flex justify-center items-center gap-8">
-          <Image className="hover:cursor-pointer" alt="arotas" width={40} height={40} src={require('../assets/icon/insta.png')} />
-          <Image className="hover:cursor-pointer" alt="arotas" width={40} height={40} src={require('../assets/icon/twit.png')} />
-          <Image className="hover:cursor-pointer" alt="arotas" width={40} height={40} src={require('../assets/icon/tele.png')} />
+          <Image className="hover:cursor-pointer" alt="arotas" width={40} height={40} src={insta} />
+          <Image className="hover:cursor-pointer" alt="arotas" width={40} height={40} src={twit} />
+          <Image className="hover:cursor-pointer" alt="arotas" width={40} height={40} src={tele} />
         </div>
       </div>
       <h1 className="bg-red-300 text-xs font-medium text-center font-poppin">All rights reserved @2024 erotas.in</h1>

@@ -1,8 +1,8 @@
 'use client'
-import CreateEditAddress from '@/components/CreateEditAddress'
+import CreateEditAddress from '@/components/address/CreateEditAddress'
 import React from 'react'
 import useGetAddress from '@/hooks/address/useGetAddress'
-import AddressComponent from '@/components/AddressComponent';
+import AddressComponent from '@/components/address/AddressComponent';
 
 function page() {
 

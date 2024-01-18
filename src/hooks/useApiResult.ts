@@ -1,9 +1,8 @@
 'use client'
-import React from "react"
 
 const useApiResult = () => {
 
-    const validStatus = (status: string | undefined) => {
+    const validStatus = (status: string | undefined) => {        
         if (status) {
             if (status === 'true') {
                 return true

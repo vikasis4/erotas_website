@@ -3,7 +3,7 @@ import accountReducer from '@/redux/slice/general/index';
 import { userApi } from './slice/user';
 import { productsApi } from './slice/products';
 import { cartApi } from './slice/cart';
-import { addressApi } from './slice/address/api';
+import { addressApi } from './slice/address';
 
 export const makeStore = () => {
   return configureStore({
@@ -16,7 +16,7 @@ export const makeStore = () => {
     },
 
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(userApi.middleware, productsApi.middleware, cartApi.middleware),
+      getDefaultMiddleware().concat(userApi.middleware, productsApi.middleware, cartApi.middleware, addressApi.middleware),
   })
 }
 

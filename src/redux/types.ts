@@ -25,6 +25,7 @@ export type cartType = {
 
 
 export type AddressType = {
+    _id:string
     address: string,
     pincode: number,
     city: string,

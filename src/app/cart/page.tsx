@@ -4,10 +4,12 @@ import React from 'react';
 import CartElementMap from '@/components/CartElementMap';
 import priceCalc from '@/utils/priceCalculator';
 import useCart from '@/hooks/cart/useCart';
+import { useRouter } from 'next/navigation';
 
 function page() {
 
     const cart = useCart();
+    const router = useRouter();
 
     if (cart.length === 0) {
         return (
@@ -33,7 +35,7 @@ function page() {
                     <h1 className="hidden lg:block text-black">Total Price :</h1>
                     <h1 className="lg:hidden text-white lg:text-black">Total - &nbsp; &#8377; {priceCalc(cart)}</h1>
                     <h1 className=" hidden lg:block text-white lg:text-green-600">&#8377; {priceCalc(cart)}</h1>
-                    <button className="bg-white lg:bg-green-600 text-black lg:text-white py-2 px-4 shadow-md rounded">Proceed</button>
+                    <button onClick={() => router.push('/pay')}className="bg-white lg:bg-green-600 text-black lg:text-white py-2 px-4 shadow-md rounded">Proceed</button>
                 </div>
 
             </div>

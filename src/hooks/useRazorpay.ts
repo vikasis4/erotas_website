@@ -3,28 +3,23 @@
 import axios from 'axios';
 import useUser from '@/hooks/user/useUser';
 import useGeneral from '@/hooks/general/useGeneral';
-import { rzpCallBack, rzpOrder } from '@/config/apis'
+import { rzpCallBack, rzpOrder, rzp_key } from '@/config/apis'
 
 const useRazorpay = () => {
 
     var { name, email, userId } = useUser();
-    var { delivery_address } = useGeneral();
-
-    // rzp_live_14f793Ecrb21Gi
-    // rzp_test_VD0r7oIRVyrcyS
-
-    var key = 'rzp_live_14f793Ecrb21Gi'
+    var { addressId } = useGeneral();
     var orderId = ''
 
 
     const Razorpay = async () => {
 
-        await axios.post(rzpOrder, { address: delivery_address, userId }).then(response => {
+        await axios.post(rzpOrder, { addressId, userId }).then(response => {
             orderId = response.data.order.id
         })
 
         var options: any = {
-            "key": key,
+            "key": rzp_key,
             "currency": "INR",
             "name": "Erota",
             "description": "erota products transaction",
@@ -48,7 +43,7 @@ const useRazorpay = () => {
             "prefill": {
                 "name": name,
                 "email": email,
-                "contact": delivery_address.phone
+                "contact": '9000000000'
             },
             "theme": {
                 "color": "#3399cc"

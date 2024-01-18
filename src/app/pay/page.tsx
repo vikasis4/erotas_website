@@ -1,15 +1,33 @@
 'use client'
 import React from 'react';
 import useRazorpay from '@/hooks/useRazorpay';
+import useCart from '@/hooks/cart/useCart';
+import { useRouter } from 'next/navigation';
+import SelectAddress from '@/components/address/SelectAddress';
+import Checkout from '@/components/Checkout';
 
 function page() {
 
-    const Razorpay = useRazorpay()
+    const cart = useCart();
+    const router = useRouter();
+    const Razorpay = useRazorpay();
+    const [addressSelected, setAddressSelected] = React.useState(false);
+
+    React.useEffect(() => {
+        if (cart.length === 0) {
+            // router.push('/cart')
+        }
+    }, [])
 
     return (
-        <div className="flex justify-center items-center h-full w-full">
-            <button className="bg-red-600 shadow-md rounded-md px-8 py-2 text-white text-2xl hover:cursor-pointer" onClick={() => Razorpay()} > Pay</button>
-        </div>
+        <>
+            {
+                addressSelected ?
+                    <Checkout setAddressSelected={setAddressSelected} />
+                    :
+                    <SelectAddress setAddressSelected={setAddressSelected} />
+            }
+        </>
     )
 }
 

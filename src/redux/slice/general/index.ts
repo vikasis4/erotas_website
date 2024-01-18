@@ -5,15 +5,7 @@ import { GenralState } from '@/redux/types'
 const initialState: GenralState = {
     isLoading: false,
     isAuthenticated: false,
-    delivery_address: {
-        _id: '',
-        address: '',
-        pincode: 0,
-        city: '',
-        state: '',
-        phone: 7988500286,
-        landMark: ''
-    },
+    addressId: 'false'
 }
 
 export const generalSlice = createSlice({
@@ -25,10 +17,13 @@ export const generalSlice = createSlice({
         },
         setIsAuthenticated: (state, action: PayloadAction<boolean>) => {
             state.isAuthenticated = action.payload
+        },
+        setDeliveryId: (state, action: PayloadAction<string>) => {
+            state.addressId = action.payload
         }
     },
 })
 
-export const { setIsLoading, setIsAuthenticated } = generalSlice.actions
+export const { setIsLoading, setIsAuthenticated, setDeliveryId } = generalSlice.actions
 
 export default generalSlice.reducer

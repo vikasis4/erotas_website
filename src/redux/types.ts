@@ -37,5 +37,5 @@ export type AddressType = {
 export interface GenralState {
     isLoading: boolean,
     isAuthenticated: boolean,
-    delivery_address: AddressType
+    addressId: string
 }

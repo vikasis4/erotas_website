@@ -66,3 +66,8 @@ export type OrderType = {
         landMark: string
     },
 }
+
+export type SupportType = {
+    phone: number,
+    userId:string,
+}

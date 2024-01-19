@@ -21,7 +21,7 @@ function SelectAddress({ setAddressSelected }: any) {
 
 
   return (
-    <div className="relative">
+    <>
       <h1 className="font-poppin  font-semibold text-center py-4 text-xl">Select Address for delivery</h1>
       {
         showConfig ?
@@ -34,15 +34,13 @@ function SelectAddress({ setAddressSelected }: any) {
                 :
                 address.map((data, index) => (<AddressComponent key={index} data={data} />))
             }
-            <button onClick={() => setShowConfig(true)} className="bg-red-600 mt-8 w-full lg:w-1/2 px-8 py-2 font-medium text-white rounded-md shadow-md">+ Add New Address</button>
+            <button onClick={handleClick} className="bg-red-600 mt-8 w-full lg:w-1/2 px-8 py-2 font-medium text-white rounded-md shadow-md">
+              Continue
+            </button>
+            <button onClick={() => setShowConfig(true)} className="bg-red-600 w-full lg:w-1/2 px-8 py-2 font-medium text-white rounded-md shadow-md">+ Add New Address</button>
           </div>
       }
-      <div className="fixed bottom-0 w-full h-16 bg-red-600 flex justify-center items-center">
-        <button onClick={handleClick} className="bg-white rounded-md shadow-md px-12 py-2 font-poppin font-semibold lg:hover:cursor-pointer">
-          Continue
-        </button>
-      </div>
-    </div>
+    </>
   )
 }
 

@@ -18,7 +18,7 @@ function Checkout({ setAddressSelected }: any) {
 
 
     return (
-        <div className="relative">
+        <div className="m-auto lg:w-1/2 ">
             <button onClick={() => setAddressSelected(false)} className="bg-white rounded-md shadow-md px-12 py-2 font-poppin m-4 font-semibold lg:hover:cursor-pointer">
                 Go Back
             </button>
@@ -43,12 +43,9 @@ function Checkout({ setAddressSelected }: any) {
                     <h1>20% Applied</h1>
                 </div>
             </div>
-
-            <div className="fixed bottom-0 w-full h-16 bg-red-600 flex justify-center items-center">
-                <button onClick={() => razorpay()} className="bg-white rounded-md shadow-md px-16 py-2 font-poppin font-semibold lg:hover:cursor-pointer">
-                    Pay
-                </button>
-            </div>
+            <button onClick={() => razorpay()} className="bg-red-600 text-white text-xl rounded-md shadow-md ml-6 w-[50%] lg:w-1/2 px-16 py-2 font-poppin font-semibold lg:hover:cursor-pointer">
+                Pay
+            </button>
         </div>
     )
 }

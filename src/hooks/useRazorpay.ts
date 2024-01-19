@@ -3,7 +3,7 @@
 import axios from 'axios';
 import useUser from '@/hooks/user/useUser';
 import useGeneral from '@/hooks/general/useGeneral';
-import { rzpCallBack, rzpOrder, rzp_key } from '@/config/apis'
+import { rzpCallBack, rzpOrder, rzp_key } from '@/config/apis';
 
 const useRazorpay = () => {
 
@@ -24,7 +24,7 @@ const useRazorpay = () => {
             "name": "Erota",
             "description": "erota products transaction",
             "order_id": orderId,
-            "handler": async function (response: any) {
+            "handler": async function (response: any) {                
                 var body = { ...response }
                 var res = await fetch(rzpCallBack, {
                     method: "POST",
@@ -35,6 +35,7 @@ const useRazorpay = () => {
                 })
                 var status = await res.json();
                 if (status.status === 'true') {
+                    location.reload()
                     alert('Payment is Successful')
                 } else {
                     alert('Something went wrong, please use customer support to resolve this issue')

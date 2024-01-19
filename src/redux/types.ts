@@ -39,3 +39,30 @@ export interface GenralState {
     isAuthenticated: boolean,
     addressId: string
 }
+
+export type OrderType = {
+    userId: string,
+    paymentId: string,
+    orderId: string,
+    price: number,
+    trackingLink: string,
+    shipmentCreated: boolean,
+    delivered:boolean,
+    created_at: Date,
+    updated_at: Date,
+    products: {
+        name: string,
+        price: number,
+        productId: string,
+        imageLink: string,
+        qty: number
+    }[],
+    address: {
+        address: string,
+        pincode: number,
+        city: string,
+        state: string,
+        phone: number,
+        landMark: string
+    },
+}

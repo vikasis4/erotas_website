@@ -14,7 +14,7 @@ function page() {
 
     React.useEffect(() => {
         if (cart.length === 0) {
-            router.push('/cart')
+            router.push('/')
         }
     }, [])
 

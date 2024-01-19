@@ -16,8 +16,8 @@ function page() {
             <h1 className="font-semibold">Name :- {name}</h1>
             <h1 className="font-semibold">Email :- {email}</h1>
             <h1 onClick={() => router.push('/address')} className="lg:hover:cursor-pointer font-semibold bg-red-600 rounded-md px-8 py-2 text-white shadow-lg">Delivery Address</h1>
-            <h1 onClick={() => router.push('/address')} className="lg:hover:cursor-pointer font-semibold bg-red-600 rounded-md px-8 py-2 text-white shadow-lg">Customer Support</h1>
-            <h1 className=" lg:hover:cursor-pointer font-semibold bg-red-600 rounded-md px-8 py-2 text-white shadow-lg">See Your Orders</h1>
+            <h1 onClick={() => router.push('/support')} className="lg:hover:cursor-pointer font-semibold bg-red-600 rounded-md px-8 py-2 text-white shadow-lg">Customer Support</h1>
+            <h1 onClick={() => router.push('/orders')} className=" lg:hover:cursor-pointer font-semibold bg-red-600 rounded-md px-8 py-2 text-white shadow-lg">See Your Orders</h1>
             <Logout />
         </div>
     )

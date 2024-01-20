@@ -2,14 +2,18 @@
 
 const useApiResult = () => {
 
-    const validStatus = (status: string | undefined) => {        
-        if (status) {
-            if (status === 'true') {
-                return true
-            } else {
-                alert('API STATUS NOT TRUE');
+    const validStatus = (status: string | undefined) => {
+        switch (status) {
+            case 'true':
+                return true;
+            case 'empty':
+                console.log('API empty');
+                return false;
+            case 'error':
+                alert('Something went wrong')
+                return false;
+            default:
                 return false
-            }
         }
     }
 

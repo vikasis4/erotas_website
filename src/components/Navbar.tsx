@@ -46,7 +46,7 @@ function Navbar() {
   return (
     <div className="p-4 box-border flex justify-between md:justify-center items-center w-full h-24 bg-[#F5F5F5]">
       <LeftBar />
-      <Image onClick={() => router.push('/')} className='hover:cursor-pointer' alt="erota" width={140} height={140} src={logo} />
+      <h1 className='font-playfair text-4xl font-semibold text-red-500'>Erota</h1>
       <RightBar router={router} />
     </div>
   )

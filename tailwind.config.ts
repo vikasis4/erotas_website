@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         poppin: ['var(--font-poppins)'],
         mono: ['var(--font-roboto-mono)'],
+        playfair: ['var(--font-playfair)'],
       },
     },
   },

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import { Poppins, Roboto_Mono } from 'next/font/google'
+import { Poppins, Roboto_Mono, Playfair_Display } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import StoreProvider from './StoreProvider'
 import Loader from '@/components/Loader'
@@ -12,6 +12,13 @@ const poppins = Poppins({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-poppins',
+})
+const playfair = Playfair_Display({
+  weight: [ '400', '500', '600', '700', '800'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-playfair',
 })
 const roboto_mono = Roboto_Mono({
   subsets: ['latin'],
@@ -31,7 +38,7 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <html lang="en" className={`${poppins.variable} ${roboto_mono.variable}`}>
+      <html lang="en" className={`${poppins.variable} ${roboto_mono.variable} ${playfair.variable}`}>
         <body>
           <StoreProvider>
             <Navbar />

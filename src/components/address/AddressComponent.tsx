@@ -19,11 +19,11 @@ function AddressComponent({ data }: { data: AddressType }) {
 
     return (
         <>
-            <div className="flex bg-primary relative flex-wrap w-full lg:w-1/2 font-poppin gap-4 shadow-md rounded-md p-4">
-                <h1 onClick={() => setAddressId(_id)} className="lg:hoevr:cursor-pointer flex justify-center items-center absolute top-3 left-3 h-6 w-6 border-white border-2 rounded-full">
+            <div className="flex bg-red-100 text-black relative flex-wrap w-full lg:w-1/2 font-poppin gap-4 shadow-md rounded-md p-4">
+                <h1 onClick={() => setAddressId(_id)} className="lg:hoevr:cursor-pointer flex justify-center items-center absolute top-3 left-3 h-6 w-6 border-primary border-2 rounded-full">
                     {
                         addressId === _id ?
-                            <h1 className="h-4 w-4 bg-white  rounded-full"></h1>
+                            <h1 className="h-4 w-4 bg-primary  rounded-full"></h1>
                             :
                             null
                     }

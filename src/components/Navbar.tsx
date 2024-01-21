@@ -52,7 +52,7 @@ function Navbar() {
         <div className="lg:hidden flex justify-center items-center">
           <Menu />
         </div>
-        <h1 onClick={() => router.push('/')} className='font-playfair text-4xl text-primary'>Erota</h1>
+        <h1 onClick={() => router.push('/')} className='font-playfair text-4xl text-primary'>EROTA</h1>
       </div>
       <RightBar router={router} />
     </div>

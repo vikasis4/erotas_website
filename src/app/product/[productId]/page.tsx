@@ -49,11 +49,11 @@ export default function Page() {
                         </div>
                     </div>
 
-                    <div className="font-poppin text-center border-box px-4 flex-1 gap-10 flex flex-col justify-between items-center pr-4 pb-12">
+                    <div className="font-playfair text-center border-box px-4 flex-1 gap-10 flex flex-col justify-between items-center pr-4 pb-12">
                         <h1 className="font-semibold text-xl" >{product?.name}</h1>
                         <h1 className="font-semibold text-3xl text-green-600" >Price :- &#8377; {product?.price}</h1>
                         <div className="flex border-box w-full gap-4 justify-center items-center">
-                            <button onClick={() => router.push('/cart')} className="bg-red-600 rounded lg:hover:scale-125 flex-1 duration-300 font-semibold text-white shadow text-xl p-3" >Go To Cart</button>
+                            <button onClick={() => router.push('/cart')} className="bg-primary rounded lg:hover:scale-125 flex-1 duration-300 font-semibold text-white shadow text-xl p-3" >Go To Cart</button>
                             <ProductConfig productId={id.productId} />
                         </div>
                         <h1>{product?.description}</h1>

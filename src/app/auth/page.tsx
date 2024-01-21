@@ -23,9 +23,9 @@ function page() {
     }
 
     return (
-        <div className="flex flex-col justify-center items-center h-[80%]">
-            <h1 className="text-4xl font-poppin">{state.status === 'login' ? 'LogIn' : state.status === 'otp' ? 'OTP' : 'Create Account'}</h1>
-            <div className="mt-12 flex flex-col lg:w-[50%]">
+        <div className="my-24 flex flex-col justify-center items-center">
+            <h1 className="mb-12 text-4xl font-playfair">{state.status === 'login' ? 'LogIn' : state.status === 'otp' ? 'OTP' : 'Create Account'}</h1>
+            <div className="flex flex-col lg:w-[50%]">
                 {
                     state.status === 'register' ?
                         <Register redux={{ dispatch, setIsLoading }} setState={setState} state={state} />

@@ -5,6 +5,7 @@ import useGetAddress from '@/hooks/address/useGetAddress'
 import priceCalc from '@/utils/priceCalculator';
 import useCart from '@/hooks/cart/useCart';
 import useRazorpay from '@/hooks/useRazorpay';
+import { Button } from './ui/button';
 
 function Checkout({ setAddressSelected }: any) {
 
@@ -14,14 +15,13 @@ function Checkout({ setAddressSelected }: any) {
     const razorpay = useRazorpay();
 
     var addressElement = address.filter((state) => state._id === addressId)
-    const handleClick = () => { };
 
 
     return (
         <div className="m-auto lg:w-1/2 ">
-            <button onClick={() => setAddressSelected(false)} className="bg-white rounded-md shadow-md px-12 py-2 font-poppin m-4 font-semibold lg:hover:cursor-pointer">
+            <Button variant="outline" onClick={() => setAddressSelected(false)} className="bg-white rounded-md shadow-md px-12 py-2 font-playfair m-4 font-semibold lg:hover:cursor-pointer">
                 Go Back
-            </button>
+            </Button>
             {
                 addressElement.length > 0 ?
                     <SimpleAddress data={addressElement[0]} />
@@ -43,9 +43,9 @@ function Checkout({ setAddressSelected }: any) {
                     <h1>20% Applied</h1>
                 </div>
             </div>
-            <button onClick={() => razorpay()} className="bg-red-600 text-white text-xl rounded-md shadow-md ml-6 w-[50%] lg:w-1/2 px-16 py-2 font-poppin font-semibold lg:hover:cursor-pointer">
+            <Button className='ml-8' onClick={() => razorpay()} size="lg">
                 Pay
-            </button>
+            </Button>
         </div>
     )
 }

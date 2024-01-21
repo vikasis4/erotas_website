@@ -4,6 +4,7 @@ import { Poppins, Roboto_Mono, Playfair_Display } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import StoreProvider from './StoreProvider'
 import Loader from '@/components/Loader'
+import { Toaster } from "@/components/ui/toaster"
 import Footer from '@/components/Footer'
 
 const poppins = Poppins({
@@ -43,6 +44,7 @@ export default function RootLayout({
           <StoreProvider>
             <Navbar />
             {children}
+            <Toaster />
             <Loader />
             <Footer />
           </StoreProvider>

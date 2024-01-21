@@ -14,7 +14,7 @@ function Timer({count, setCount}:any) {
     }, [count]);
 
     return (
-        <div className="font-poppin">Resend OTP after :- {count}</div>
+        <div className="font-playfair">Resend OTP after :- {count}</div>
     )
 }
 

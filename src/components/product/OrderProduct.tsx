@@ -21,7 +21,7 @@ function OrderProduct({ data }: any) {
                 <div className='flex gap-4'>
                     <h1>&#8377; {price}</h1>
                     <h1>Qty :- {qty}</h1>
-                    <button onClick={() => router.push(`product/${productId}`)} className='px-4 py-1 bg-red-600 rounded-md shadow-md text-white lg:hover:cursor-pointer'>View Product</button>
+                    <button onClick={() => router.push(`product/${productId}`)} className='px-4 py-1 bg-white rounded-md shadow-md text-primary lg:hover:cursor-pointer'>View Product</button>
                 </div>
             </div>
         </div>

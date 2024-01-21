@@ -5,25 +5,27 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import useCart from '@/hooks/cart/useCart'
 import useGeneral from '@/hooks/general/useGeneral'
-import { user, cartImg, insta, twit, tele, logo } from '@/config/images'
+import { user, insta, twit, tele } from '@/config/images'
+import Menu from './Menu'
+import { BagS } from './ui/svg/Menu'
 
 function RightBar(router: any) {
 
-  const { isAuthenticated } = useGeneral();  
+  const { isAuthenticated } = useGeneral();
   const cart = useCart()
 
 
   return (
-    <div className="flex md:w-full font-poppin justify-center items-center gap-4 md:gap-6 relative">
+    <div className="flex md:w-full font-mono justify-center items-center gap-4 md:gap-6 relative">
       <div className="flex flex-col justify-center items-center">
         {isAuthenticated ?
-          <Image onClick={() => router.router.push('/account')} src={user} alt='erota' height='50' width='50' className='lg:hover:cursor-pointer shadow-md rounded-full' />
+          <Image onClick={() => router.router.push('/account')} src={user} alt='erota' height='50' width='50' className='lg:hover:cursor-pointer lg:block hidden shadow-md rounded-full' />
           :
-          <h1 className="hover:cursor-pointer  text-black font-medium text-2xl" onClick={() => router.router.push('/auth')}>SignUp</h1>}
+          <h1 className="hover:cursor-pointer text-black text-xl" onClick={() => router.router.push('/auth')}>SignUp</h1>}
       </div>
-      <div className="hover:cursor-pointer relative">
-        <Image onClick={() => router.router.push('/cart')} alt="arotas" width={40} height={40} src={cartImg} />
-        <h1 className="absolute font-poppin bottom-9 left-7 text-red-500 font-bold">{isAuthenticated ? cart.length : 0}</h1>
+      <div onClick={() => router.router.push('/cart')} className="hover:cursor-pointer relative">
+        <BagS />
+        <h1 className="absolute font-poppin bottom-9 left-8">{isAuthenticated ? cart.length : 0}</h1>
       </div>
     </div>
   )
@@ -44,9 +46,14 @@ function Navbar() {
   const router = useRouter();
 
   return (
-    <div className="p-4 box-border flex justify-between md:justify-center items-center w-full h-24 bg-[#F5F5F5]">
+    <div className="p-4 box-border flex justify-between md:justify-center items-center w-full h-24">
       <LeftBar />
-      <h1 className='font-playfair text-4xl font-semibold text-red-500'>Erota</h1>
+      <div className="flex gap-2 justify-center items-center">
+        <div className="lg:hidden flex justify-center items-center">
+          <Menu />
+        </div>
+        <h1 onClick={() => router.push('/')} className='font-playfair text-4xl text-primary'>Erota</h1>
+      </div>
       <RightBar router={router} />
     </div>
   )

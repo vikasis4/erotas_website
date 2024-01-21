@@ -2,14 +2,22 @@ import React from "react";
 import axios from "axios";
 import { signInApi } from '@/config/apis';
 import ValidateEmail from '@/utils/emailCheck'
-
+import { Input } from "@/components/ui/input"
+import { Button } from "../ui/button";
+import { useToast } from "@/components/ui/use-toast"
 
 export default function Login({ state, setState, redux }: any) {
+
+    const { toast } = useToast()
 
     const handleSubmit = async () => {
         var res = ValidateEmail(state.email);
         if (!res) {
-            alert('Email is not valid');
+            toast({
+                variant: "destructive",
+                title: "Warning",
+                description: "Email is not valid",
+            })
             return
         }
         redux.dispatch(redux.setIsLoading(true))
@@ -17,9 +25,17 @@ export default function Login({ state, setState, redux }: any) {
             if (response.data.status === 'true') {
                 setState({ ...state, status: 'otp' })
             } else if (response.data.status === 'nouser') {
-                alert('No user found')
+                toast({
+                    variant: "destructive",
+                    title: "Warning",
+                    description: "User with this email not found",
+                })
             } else {
-                alert('Something went wrong')
+                toast({
+                    variant: "destructive",
+                    title: "Warning",
+                    description: "Something went wrong",
+                })
             }
         })
         redux.dispatch(redux.setIsLoading(false))
@@ -27,7 +43,7 @@ export default function Login({ state, setState, redux }: any) {
 
     return (
         <>
-            <input
+            <Input
                 type="text"
                 title="name"
                 value={state.email}
@@ -35,15 +51,15 @@ export default function Login({ state, setState, redux }: any) {
                 placeholder="Enter Your Email"
                 className='outline-none p-4 font-medium rounded mb-4 font-poppin shadow-md'
             />
-            <button
-                onClick={handleSubmit}
-                className='mt-10 font-bold font-poppin text-2xl shadow-md bg-red-600 text-white rounded py-4'>
+            <Button
+            size="lg"
+                onClick={handleSubmit}>
                 Submit
-            </button>
-            <h1 className="mt-8 text-md font-semibold font-poppin" >Don't have an account ?</h1>
+            </Button>
+            <h1 className="mt-8 text-md font-semibold font-playfair" >Don't have an account ?</h1>
             <h1
                 onClick={() => setState({ ...state, status: 'register' })}
-                className="hover:cursor-pointer text-md font-semibold font-poppin text-green-700">Register here</h1>
+                className="hover:cursor-pointer text-md font-semibold font-playfair text-primary">Register here</h1>
         </>
     )
 }

@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import { signUpApi } from '@/config/apis';
 import ValidateEmail from '@/utils/emailCheck'
+import { Input } from "@/components/ui/input"
+import { Button } from "../ui/button";
+import { useToast } from "@/components/ui/use-toast"
 
 
 export default function Register({ setState, state, redux }: any) {
@@ -10,15 +13,25 @@ export default function Register({ setState, state, redux }: any) {
         email: '',
         name: ''
     })
+    const { toast } = useToast()
+
 
     const handleSubmit = async () => {
 
         var res = ValidateEmail(form.email);
         if (!res) {
-            alert('Email is not valid');
+            toast({
+                variant: "destructive",
+                title: "Warning",
+                description: "Email is not valid",
+            })
             return
         } if (form.name.length === 0) {
-            alert('Name field cannot be empty');
+            toast({
+                variant: "destructive",
+                title: "Warning",
+                description: "Name field cannot be empty",
+            })
             return
         }
         redux.dispatch(redux.setIsLoading(true))
@@ -26,9 +39,17 @@ export default function Register({ setState, state, redux }: any) {
             if (response.data.status === 'true') {
                 setState({ email: form.email, status: 'otp' })
             } else if (response.data.status === 'user') {
-                alert('Account with this Email already exsists');
+                toast({
+                    variant: "destructive",
+                    title: "Warning",
+                    description: "Account with this Email already exsists",
+                })
             } else {
-                alert('Something went wrong, please try again later');
+                toast({
+                    variant: "destructive",
+                    title: "Warning",
+                    description: "Something went wrong, please try again later",
+                })
             }
             setForm({ name: '', email: '' })
         })
@@ -37,7 +58,7 @@ export default function Register({ setState, state, redux }: any) {
 
     return (
         <>
-            <input
+            <Input
                 type="text"
                 title="name"
                 value={form.name}
@@ -45,7 +66,7 @@ export default function Register({ setState, state, redux }: any) {
                 placeholder="Enter Your Name"
                 className='shadow-md outline-none p-4 font-medium rounded mb-4 font-poppin'
             />
-            <input
+            <Input
                 required
                 type="email"
                 title="email"
@@ -54,15 +75,16 @@ export default function Register({ setState, state, redux }: any) {
                 placeholder="Enter Your Email"
                 className='shadow-md outline-none p-4 font-medium rounded font-poppin'
             />
-            <button
-                onClick={handleSubmit}
-                className='mt-10 font-poppin text-2xl shadow-md font-bold bg-red-600 text-white rounded py-4'>
+            <Button
+                size="lg"
+                className="mt-12"
+                onClick={handleSubmit}>
                 Submit
-            </button>
-            <h1 className="mt-8 text-md font-semibold font-poppin" >Already have an account ?</h1>
+            </Button>
+            <h1 className="mt-8 text-md font-semibold font-playfair" >Already have an account ?</h1>
             <h1
                 onClick={() => setState({ ...state, status: 'login' })}
-                className="hover:cursor-pointer text-md text-bold font-poppin font-semibold text-green-700">Login here</h1>
+                className="hover:cursor-pointer text-md text-bold font-playfair font-semibold text-primary">Login here</h1>
         </>
     )
 }

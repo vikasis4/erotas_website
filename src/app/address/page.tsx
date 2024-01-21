@@ -1,30 +1,26 @@
 'use client'
-import CreateEditAddress from '@/components/address/CreateEditAddress'
 import React from 'react'
 import useGetAddress from '@/hooks/address/useGetAddress'
 import AddressComponent from '@/components/address/AddressComponent';
+import { Button } from '@/components/ui/button';
+import AddressAlert from '@/components/alerts/AddressAlert'
 
 function page() {
 
   const address = useGetAddress();
-  const [showConfig, setShowConfig] = React.useState(false);
 
- 
+
   return (
-    <>{
-      showConfig ?
-        <CreateEditAddress setShowConfig={setShowConfig} data={null} />
-        :
-        <div className="my-16 flex-col px-12 font-poppin flex justify-center items-center gap-6">
-          <button onClick={() => setShowConfig(true)} className="bg-red-600 px-8 py-2 font-medium text-white rounded-md shadow-md">+ Add New Address</button>
-          {
-            address.length === 0 ?
-              <h1 className="my-12">No Address is saved</h1>
-              :
-              address.map((data, index) => (<AddressComponent key={index} data={data} />))
-          }
-        </div>
-    }
+    <>
+      <div className="my-8 flex-col px-6 font-poppin flex justify-center items-center gap-6">
+        <AddressAlert component={<Button>+ Add New Address</Button>} />
+        {
+          address.length === 0 ?
+            <h1 className="my-12">No Address is saved</h1>
+            :
+            address.map((data, index) => (<AddressComponent key={index} data={data} />))
+        }
+      </div>
     </>
   )
 }

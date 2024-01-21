@@ -4,14 +4,19 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { otpVerifyApi, otpGenerateApi } from '@/config/apis';
 import Timer from "../Timer";
+import { Input } from "@/components/ui/input"
+import { Button } from "../ui/button";
+import { useToast } from "@/components/ui/use-toast"
 
 export default function Otp({ state, redux }: any) {
 
     const [otp, setOtp] = React.useState<any>();
     const [count, setCount] = React.useState(40);
     const router = useRouter();
-    
-    
+    const { toast } = useToast()
+
+
+
     const handleSubmit = async () => {
         redux.dispatch(redux.setIsLoading(true))
         await axios.post(otpVerifyApi, { otp, email: state.email }).then(response => {
@@ -19,9 +24,17 @@ export default function Otp({ state, redux }: any) {
                 localStorage.setItem('JWT_token', response.data.token);
                 location.reload()
             } else if (response.data.status === 'false') {
-                alert('Wrong OTP')
+                toast({
+                    variant: "destructive",
+                    title: "Warning",
+                    description: "Wrong OTP",
+                })
             } else {
-                alert('Sometihng went wrong, please try again later')
+                toast({
+                    variant: "destructive",
+                    title: "Warning",
+                    description: "Sometihng went wrong, please try again later",
+                })
             }
         })
         redux.dispatch(redux.setIsLoading(false))
@@ -32,18 +45,29 @@ export default function Otp({ state, redux }: any) {
         await axios.post(otpGenerateApi, { email: state.email }).then((response: any) => {
             if (response.data.status === 'true') {
                 setCount(40);
-                alert('OTP sent Successfully');
+                toast({
+                    title: "Warning",
+                    description: "OTP sent Successfully",
+                })
             } else if (response.data.status === 'nouser') {
-                alert('No user found')
+                toast({
+                    variant: "destructive",
+                    title: "Warning",
+                    description: "No user found",
+                })
             } else {
-                alert('Something went wrong')
+                toast({
+                    variant: "destructive",
+                    title: "Warning",
+                    description: "Sometihng went wrong, please try again later",
+                })
             }
         })
         redux.dispatch(redux.setIsLoading(false))
     }
     return (
         <>
-            <input
+            <Input
                 type="number"
                 title="otp"
                 value={otp}
@@ -56,17 +80,17 @@ export default function Otp({ state, redux }: any) {
                 count === 0 ?
                     <h1
                         onClick={handleResend}
-                        className="text-md text-green-600 font-semibold font-poppin hover:cursor-pointer"
+                        className="text-md text-primary font-semibold font-playfair hover:cursor-pointer"
                     >Resend OTP</h1>
                     :
                     <Timer count={count} setCount={setCount} />
             }
 
-            <button
-                onClick={handleSubmit}
-                className='mt-10 shadow-md text-2xl font-bold font-poppin bg-red-600 text-white rounded py-4'>
+            <Button
+                size="lg"
+                onClick={handleSubmit}>
                 Submit
-            </button>
+            </Button>
         </>
     )
 }

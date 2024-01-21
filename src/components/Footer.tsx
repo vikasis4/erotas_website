@@ -11,8 +11,8 @@ function Footer() {
   return (
     <>
       <div className="p-12 w-full gap-12 flex-col lg:flex-row mt-12 bg-red-100 flex justify-between items-center">
-        <Image src={logo} alt="erota" height="200" width="200" />
-        <div className="font-poppin">
+      <h1 onClick={() => router.push('/')} className='font-playfair text-8xl text-primary'>Erota</h1>
+        <div className="font-playfair">
           <h1 className="font-bold text-2xl pb-8 underline">Useful Links</h1>
           <ul className="font-semibold flex flex-col gap-2">
             <li className="hover:cursor-pointer" onClick={() =>router.push('/credentials/contact')}>Contact Us</li>

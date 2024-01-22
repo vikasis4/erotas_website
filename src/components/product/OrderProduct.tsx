@@ -17,13 +17,13 @@ function OrderProduct({ data }: any) {
 
     return (
         <div className='flex gap-4 border-box'>
-            <Image loader={myLoader} src={ProductBaseURL + imageLink} alt="product" height="70" width="70"
+            <Image loader={myLoader} src={ProductBaseURL + imageLink} alt="product" height="150" width="150"
                 className="rounded-md shadow flex-2"
             />
-            <div className='text-xs font-bold flex-2 py-2 flex flex-col gap-1 justify-center items-start'>
+            <div className='text-2xl font-bold flex-2 py-2 flex flex-col gap-1 justify-center items-start'>
                 <h1>{name}</h1>
-                <div className='flex gap-4 mt-2'>
-                    <Button size="sm" variant="outline" onClick={() => router.push(`orders/${orderId}`)}>View Order</Button>
+                <div className='flex flex-col gap-4 mt-2'>
+                    <Button size="lg" variant="outline" onClick={() => router.push(`orders/${orderId}`)}>View Order</Button>
                     {
                         size === 0 ?
                             null :

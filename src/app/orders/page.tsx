@@ -14,8 +14,8 @@ function page() {
             {
 
                 orders && orders.length > 0 ? (
-                    <div className="font-playfair text-2xl p-6 flex flex-col gap-6">
-                        <h1 className="text-center text-2xl">All Orders</h1>
+                    <div className="font-playfair text-2xl p-4 flex flex-col gap-6">
+                        <h1 className="text-center font-bold text-2xl pb-4">All Orders</h1>
                         {
                             orders.map((data, index) => (<OrderProduct key={index} data={data} />))
                         }

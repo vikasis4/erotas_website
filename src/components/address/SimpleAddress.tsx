@@ -6,9 +6,9 @@ function SimpleAddress({ data }: { data: AddressType }) {
 
     const { address, pincode, city, state, landMark, phone, _id } = data;
     var style = _id === 'yo' ?
-        "flex relative flex-wrap m-auto w-[95%] font-poppin gap-2 rounded-md p-1"
+        "flex relative flex-wrap bg-red-100 m-auto w-[95%] font-poppin gap-2 rounded-md p-1"
         :
-        "flex bg-primary relative flex-wrap m-auto w-[90%] font-poppin gap-4 shadow-md rounded-md p-4"
+        "flex bg-primary relative bg-red-100 flex-wrap m-auto w-[90%] font-poppin gap-4 shadow-md rounded-md p-4"
 
     return (
         <div className={style}>

@@ -13,7 +13,7 @@ function Loader() {
         <>
             {
                 general.isLoading ?
-                    <div className="flex justify-center items-center absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-black opacity-70">
+                    <div className="flex justify-center items-center fixed top-0 left-0 right-0 bottom-0 w-full h-full bg-black opacity-80">
                         <Image src={loader} alt="Loading..." height={120} width={120} className='rounded-md' />
                     </div>
                     :

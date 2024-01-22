@@ -5,15 +5,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
 
-function OrderProduct({ data }: any) {
+function ShowProducts({ data }: any) {
 
-    const { products, orderId } = data;
-    const { name, imageLink } = products[0];
+    const { name, imageLink, productId, price } = data;
     const router = useRouter()
     const myLoader = () => {
         return ProductBaseURL + imageLink;
     }
-    const size = products.length - 1
 
     return (
         <div className='flex gap-4 border-box'>
@@ -22,17 +20,14 @@ function OrderProduct({ data }: any) {
             />
             <div className='text-xs font-bold flex-2 py-2 flex flex-col gap-1 justify-center items-start'>
                 <h1>{name}</h1>
-                <div className='flex gap-4 mt-2'>
-                    <Button size="sm" variant="outline" onClick={() => router.push(`orders/${orderId}`)}>View Order</Button>
-                    {
-                        size === 0 ?
-                            null :
-                            <h1 className='text-sm'>+{size} more products</h1>
-                    }
+                <div className='flex gap-4 mt-2 justify-center items-center'>
+                    <h1 className='font-mono text-xl text-primary'>Rs_{price}/-</h1>
+                    <Button size="sm" variant="outline" onClick={() => router.push(`product/${productId}`)}>View Product</Button>
+
                 </div>
             </div>
         </div>
     )
 }
 
-export default OrderProduct
+export default ShowProducts

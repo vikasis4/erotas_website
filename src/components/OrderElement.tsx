@@ -1,6 +1,5 @@
 import { OrderType } from '@/redux/types'
 import React from 'react'
-import OrderProduct from '@/components/product/OrderProduct'
 import SimpleAddress from '@/components/address/SimpleAddress'
 
 function OrderElement({ data }: { data: OrderType }) {
@@ -37,7 +36,7 @@ function OrderElement({ data }: { data: OrderType }) {
             <div className="flex flex-col gap-2 text-sm">
                 <h1 className="font-semibold">Products : </h1>
                 {
-                    products.map((data, index) => (<OrderProduct key={index} data={data} />))
+                    // products.map((data, index) => ())
                 }
             </div>
             <div className="flex gap-2 text-sm">

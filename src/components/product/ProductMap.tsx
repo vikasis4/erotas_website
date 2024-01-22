@@ -26,14 +26,14 @@ function ProductMap({ data }: any) {
             <Card className="w-[90%] m-auto lg:w-[40%]">
                 <CardHeader>
                     <CardTitle className='flex justify-center items-center'>
-                        <Image loader={myLoader} src={ProductBaseURL + imagesLink[0]} alt="Product" height={150} width={150} />
+                        <Image className='rounded-lg shadow-md' loader={myLoader} src={ProductBaseURL + imagesLink[0]} alt="Product" height={400} width={400} />
                     </CardTitle>
                     <CardDescription>
-                        <h1 className="text-sm md:text-lg font-playfair font-medium text-black text-center py-1">{name}</h1>
+                        <h1 className="text-3xl md:text-lg font-playfair font-medium text-black text-center py-1">{name}</h1>
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <h1 className="text-2xl md:text-2xl font-mono font-medium  text-primary text-center py-1">&#8377; {price} /-</h1>
+                    <h1 className="text-2xl md:text-2xl font-mono font-bold text-primary text-center py-1">&#8377; {price} /-</h1>
                 </CardContent>
                 <CardFooter>
                     <Button size="lg" onClick={() => router.push(`/product/${productId}`)}>View Product</Button>

@@ -15,14 +15,14 @@ export default function Home() {
   return (
     <div className="flex flex-col text-xl  justify-center items-center">
 
-      <div className="flex text-xl font-semibold border-box w-full justify-center items-center py-12 font-playfair gap-8 lg:gap-28 lg:font-normal md:justify-center">
+      {/* <div className="flex text-xl font-semibold border-box w-full justify-center items-center py-12 font-playfair gap-8 lg:gap-28 lg:font-normal md:justify-center">
         <div onClick={() => window.scroll({ top: 800, behavior: "smooth" })} className='flex justify-center items-center flex-col cursor-pointer'>
           <Image src={teddy} alt="erota" height="46" width="46" />
           <h1>Soft Toys</h1>
         </div>
         <Alert title="Upcoming" description='Products of this category will appear soon' name="Clothing" img={cloth} />
         <Alert title="Upcoming" description='Products of this category will appear soon' name="Home Decor" img={decor} />
-      </div>
+      </div> */}
 
       <div
         className="flex w-[92%] gap-8 flex-col justify-center items-center text-primary-foreground font-poppin bg-primary py-20 rounded-xl shadow-lg">

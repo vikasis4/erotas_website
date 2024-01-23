@@ -4,21 +4,21 @@ import { useParams } from 'next/navigation';
 import useGetOrder from '@/hooks/order/useGetOrder'
 import ShowProducts from '@/components/product/ShowProducts';
 import { Button } from '@/components/ui/button';
-import { useToast } from "@/components/ui/use-toast"
+import { useRouter } from 'next/navigation';
+import { useToast } from "@/components/ui/use-toast";
 
 function page() {
 
     const id = useParams();
     const ordersList = useGetOrder();
+    const router = useRouter()
     const { toast } = useToast()
     var order;
     order = ordersList.filter((order: any) => order.orderId === id.orderId)[0]
 
-    console.log(order);
-
     return (
         (order &&
-            <div className='mx-4 font-playfair'>
+            <div className='mx-4 font-poppin'>
 
                 <h1 className='mt-4'>Order details</h1>
                 <div className='p-4 border border-primary rounded'>
@@ -85,6 +85,12 @@ function page() {
                         <h1>Nearby Landmark:</h1>
                         <h1>{order.address.landMark}</h1>
                     </div>
+                </div>
+
+                <h1 className='mt-4'>Replace product</h1>
+                <div className='p-4 border border-primary rounded'>
+                    <h1 className='text-sm mb-2'>If you want to replace your product, please go to customer Support and rasie a query</h1>
+                    <Button size="sm" onClick={()=>router.push(`/support`)}>Go to Customer Support</Button>
                 </div>
 
                 <h1 className='mt-4'>Payment details</h1>

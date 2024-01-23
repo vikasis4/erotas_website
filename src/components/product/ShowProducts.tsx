@@ -22,7 +22,7 @@ function ShowProducts({ data }: any) {
                 <h1>{name}</h1>
                 <div className='flex gap-4 mt-2 justify-center items-center'>
                     <h1 className='font-mono text-xl text-primary'>Rs_{price}/-</h1>
-                    <Button size="sm" variant="outline" onClick={() => router.push(`product/${productId}`)}>View Product</Button>
+                    <Button size="sm" variant="outline" onClick={() => router.push(`/product/${productId}`)}>View Product</Button>
 
                 </div>
             </div>

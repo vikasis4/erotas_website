@@ -15,6 +15,6 @@ export const signInApi = CurrentBase + '/api/auth/login'
 export const otpGenerateApi = CurrentBase + '/api/auth/login'
 export const ProductBaseURL = CurrentBase + '/product/'
 
-export const rzp_key = 'rzp_live_14f793Ecrb21Gi'
+export const rzp_key = 'rzp_test_VD0r7oIRVyrcyS'
 // rzp_live_14f793Ecrb21Gi
 // rzp_test_VD0r7oIRVyrcyS

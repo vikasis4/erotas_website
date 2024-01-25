@@ -6,6 +6,7 @@ import { cartApi } from './slice/cart';
 import { addressApi } from './slice/address';
 import { orderApi } from './slice/order/api';
 import { supportApi } from './slice/suport/api'
+import { wishListApi } from './slice/wishlist';
 
 export const makeStore = () => {
   return configureStore({
@@ -16,11 +17,12 @@ export const makeStore = () => {
       [cartApi.reducerPath]: cartApi.reducer,
       [addressApi.reducerPath]: addressApi.reducer,
       [orderApi.reducerPath]: orderApi.reducer,
-      [supportApi.reducerPath]: supportApi.reducer
+      [supportApi.reducerPath]: supportApi.reducer,
+      [wishListApi.reducerPath]: wishListApi.reducer,
     },
 
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(userApi.middleware, productsApi.middleware, cartApi.middleware, addressApi.middleware, orderApi.middleware, supportApi.middleware),
+      getDefaultMiddleware().concat(userApi.middleware, productsApi.middleware, cartApi.middleware, addressApi.middleware, orderApi.middleware, supportApi.middleware, wishListApi.middleware),
   })
 }
 

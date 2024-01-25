@@ -5,27 +5,30 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import useCart from '@/hooks/cart/useCart'
 import useGeneral from '@/hooks/general/useGeneral'
-import { user, insta, twit, tele } from '@/config/images'
+import { user, insta, twit, tele, love } from '@/config/images'
 import Menu from './Menu'
-import { BagS } from './ui/svg/Menu'
+import bag from '@/assets/icon/bag.png'
 
 function RightBar(router: any) {
 
   const { isAuthenticated } = useGeneral();
   const cart = useCart()
-
+  var dim = 35;
 
   return (
     <div className="flex md:w-full font-mono justify-center items-center gap-4 md:gap-6 relative">
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex justify-center items-center gap-3">
         {isAuthenticated ?
-          <Image onClick={() => router.router.push('/account')} src={user} alt='erota' height='50' width='50' className='lg:hover:cursor-pointer lg:block hidden shadow-md rounded-full' />
+          <>
+            <Image onClick={() => router.router.push('/account')} src={user} alt='erota' height='50' width='50' className='lg:hover:cursor-pointer active:scale-90 duration-150 lg:block hidden shadow-md rounded-full' />
+            <Image onClick={() => router.router.push('/wishlist')} className='active:scale-90 duration-150' src={love} alt="erota" height={dim} width={dim} />
+            <div onClick={() => router.router.push('/cart')} className="active:scale-90 duration-150 hover:cursor-pointer relative">
+              <Image src={bag} alt="erota" height={dim} width={dim} />
+              <h1 className="absolute font-poppin font-semibold bottom-7 left-7">{isAuthenticated ? cart.length : 0}</h1>
+            </div>
+          </>
           :
-          <h1 className="hover:cursor-pointer text-black text-xl" onClick={() => router.router.push('/auth')}>SignUp</h1>}
-      </div>
-      <div onClick={() => router.router.push('/cart')} className="hover:cursor-pointer relative">
-        <BagS />
-        <h1 className="absolute font-poppin bottom-9 left-8">{isAuthenticated ? cart.length : 0}</h1>
+          <h1 className="hover:cursor-pointer active:scale-90 duration-150 font-semibold text-gray-700 font-poppin text-2xl" onClick={() => router.router.push('/auth')}>SignUp</h1>}
       </div>
     </div>
   )

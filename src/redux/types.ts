@@ -71,3 +71,10 @@ export type SupportType = {
     phone: number,
     userId:string,
 }
+
+export type wishListType = {
+    productId: String | undefined,
+    name: String | undefined,
+    price: number | undefined,
+    imageLink: String | undefined,
+}

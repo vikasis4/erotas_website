@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { MenuS, LoginS } from '@/components/ui/svg/Menu'
+import menu from '@/assets/icon/menu.png'
 import useUser from '@/hooks/user/useUser';
 import { useRouter } from 'next/navigation';
 import useSetAuth from '@/hooks/useSetAuth';
@@ -15,6 +15,7 @@ import {
     DrawerTrigger,
 } from "@/components/ui/drawer"
 import { Button } from "@/components/ui/button"
+import Image from 'next/image';
 
 function Menu() {
 
@@ -34,7 +35,7 @@ function Menu() {
     return (
         <Drawer>
             <DrawerTrigger>
-                <MenuS />
+                <Image src={menu} alt="erota" height="40" width="40" />
             </DrawerTrigger>
             <DrawerContent>
                 <DrawerHeader>
@@ -46,7 +47,7 @@ function Menu() {
                         email.length < 5 ?
 
                             <div className="flex flex-col gap-4 my-4 w-[90%] m-auto justify-center items-strech">
-                                <Button onClick={() => router.push('/auth')}><LoginS />&nbsp; Sign Up</Button>
+                                <Button onClick={() => router.push('/auth')}>Sign Up</Button>
                                 <Button onClick={() => router.push('/')}>Home</Button>
                             </div>
                             :

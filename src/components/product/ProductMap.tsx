@@ -11,6 +11,7 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { Button } from '../ui/button'
+import FavButton from '../FavButton'
 
 
 function ProductMap({ data }: any) {
@@ -20,6 +21,7 @@ function ProductMap({ data }: any) {
     const myLoader = () => {
         return ProductBaseURL + imagesLink[0];
     }
+    
 
     return (
         <>
@@ -35,8 +37,9 @@ function ProductMap({ data }: any) {
                 <CardContent>
                     <h1 className="text-2xl md:text-2xl font-mono font-bold text-primary text-center py-1">&#8377; {price} /-</h1>
                 </CardContent>
-                <CardFooter>
-                    <Button size="lg" onClick={() => router.push(`/product/${productId}`)}>View Product</Button>
+                <CardFooter className='flex flex-col justify-center items-center gap-4'>
+                    <Button className='w-full' onClick={() => router.push(`/product/${productId}`)}>View Product</Button>
+                    <FavButton productId={productId} />
                 </CardFooter>
             </Card>
         </>

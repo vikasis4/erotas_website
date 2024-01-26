@@ -23,7 +23,7 @@ function ProductConfig({ productId }: { productId: any }) {
           </button>
           :
           <div
-            className="bg-white border border-box border-primary flex-1 border-box flex justify-around lg:w-[40%] m-auto items-center rounded font-semibold text-primary text-3xl shadow px-3 py-3" >
+            className="bg-white border border-box border-primary flex-1 border-box flex justify-around lg:w-[40%] m-auto items-center rounded font-poppin text-primary text-2xl shadow px-3 py-3" >
             <button
               onClick={() => removeFromCart(productId)}
             >

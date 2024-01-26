@@ -12,34 +12,33 @@ import {
 } from "@/components/ui/card"
 import { Button } from '../ui/button'
 import FavButton from '../FavButton'
+import YesImage from '../YesImage'
 
 
 function ProductMap({ data }: any) {
 
-    const { name, price, productId, imagesLink } = data
+    const { name, price, productId } = data;
+    var imageLink = data.imagesLink ? data.imagesLink[0] : data.imageLink
     const router = useRouter();
-    const myLoader = () => {
-        return ProductBaseURL + imagesLink[0];
-    }
-    
 
     return (
         <>
             <Card className="w-[90%] m-auto lg:w-[40%]">
                 <CardHeader>
                     <CardTitle className='flex justify-center items-center'>
-                        <Image className='rounded-lg shadow-md' loader={myLoader} src={ProductBaseURL + imagesLink[0]} alt="Product" height={400} width={400} />
+                    <YesImage l={imageLink} d={400} c='rounded-lg shadow-md' />
                     </CardTitle>
-                    <CardDescription>
+                    <CardDescription className='flex justify-around items-center pt-4'>
                         <h1 className="text-3xl md:text-lg font-playfair font-medium text-black text-center py-1">{name}</h1>
+                        <FavButton productId={productId} />
                     </CardDescription>
                 </CardHeader>
-                <CardContent>
-                    <h1 className="text-2xl md:text-2xl font-mono font-bold text-primary text-center py-1">&#8377; {price} /-</h1>
+                <CardContent className='flex gap-4 px-12'>
+                    <h1 className="text-2xl md:text-2xl font-poppin font-bold text-primary text-center py-1">&#8377; {price} /-</h1>
+                    <h1 className="line-through text-2xl md:text-2xl font-poppin text-red-300 text-center py-1">&#8377; {price} /-</h1>
                 </CardContent>
                 <CardFooter className='flex flex-col justify-center items-center gap-4'>
-                    <Button className='w-full' onClick={() => router.push(`/product/${productId}`)}>View Product</Button>
-                    <FavButton productId={productId} />
+                    <Button size="lg" className='text-base font-playfair w-full' onClick={() => router.push(`/product/${productId}`)}>View Product</Button>
                 </CardFooter>
             </Card>
         </>

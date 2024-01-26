@@ -1,6 +1,7 @@
 import React from 'react'
 import useWishList from '@/hooks/wishlist/useWishList'
-import { Button } from '@/components/ui/button'
+import { love, ylove } from '@/config/images';
+import Image from 'next/image';
 
 function FavButton({ productId }: { productId: string }) {
     const { getWishList, addToWishList, removeFromWishList } = useWishList();
@@ -20,9 +21,9 @@ function FavButton({ productId }: { productId: string }) {
         <>
             {
                 selected ?
-                    <Button className='w-full' size="lg" onClick={() => removeFromWishList(productId)}>Remove From Favorites</Button>
+                    <Image onClick={() => removeFromWishList(productId)} src={ylove} height="40" width="40" className='h-6 w-6' alt="erota" />
                     :
-                    <Button className='w-full' size="lg" onClick={() => addToWishList(productId)}>Add To Favorites</Button>
+                    <Image onClick={() => addToWishList(productId)} src={love} height="40" width="40" className='h-6 w-6' alt="erota" />
             }
         </>
     )

@@ -5,6 +5,7 @@ import edit from '@/assets/icon/edit.png'
 import insta from '@/assets/icon/insta.png'
 import logo from '@/assets/icon/logo.png'
 import love from '@/assets/icon/love.png'
+import ylove from '@/assets/icon/ylove.png'
 import tele from '@/assets/icon/tele.png'
 import twit from '@/assets/icon/twit.png'
 import user from '@/assets/icon/user.png'
@@ -17,4 +18,4 @@ import cloth from '@/assets/icon/cloth.png'
 import loader from '@/assets/image/loader.gif'
 
 
-export { teddy,decor,cloth, close, delet, edit, insta, logo, love, tele, twit, user, loader }
+export { teddy,decor,cloth, close, delet, edit, insta, logo, love, tele, twit, user, loader, ylove }

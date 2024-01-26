@@ -15,7 +15,7 @@ function page() {
     if (cart.length === 0) {
         return (
             <>
-                <h1 className="text-8xl font-playfair text-center flex h-full w-full py-24 justify-center items-center ">Cart is Empty</h1>
+                <h1 className="text-4xl font-playfair text-center flex h-full w-full py-24 justify-center items-center ">Cart is Empty</h1>
             </>
         )
     }

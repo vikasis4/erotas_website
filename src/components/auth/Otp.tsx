@@ -1,7 +1,6 @@
 'use client'
 import React from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import { otpVerifyApi, otpGenerateApi } from '@/config/apis';
 import Timer from "../Timer";
 import { Input } from "@/components/ui/input"
@@ -12,7 +11,6 @@ export default function Otp({ state, redux }: any) {
 
     const [otp, setOtp] = React.useState<any>();
     const [count, setCount] = React.useState(40);
-    const router = useRouter();
     const { toast } = useToast()
 
 

@@ -28,8 +28,8 @@ function Menu() {
             localStorage.removeItem('JWT_token')
         };
         setAuht(false)
-        router.refresh();
         router.push('/');
+        window.location.reload();
     }
 
     return (

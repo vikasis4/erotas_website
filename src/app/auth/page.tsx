@@ -7,6 +7,7 @@ import Otp from '@/components/auth/Otp';
 import Login from '@/components/auth/Login'
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setIsLoading } from '@/redux/slice/general/index'
+import Google from '@/components/auth/Google';
 
 
 function page() {
@@ -25,7 +26,16 @@ function page() {
     return (
         <div className="my-24 flex flex-col justify-center items-center">
             <h1 className="mb-12 text-4xl font-playfair">{state.status === 'login' ? 'LogIn' : state.status === 'otp' ? 'OTP' : 'Create Account'}</h1>
-            <div className="flex flex-col lg:w-[50%]">
+            <div className="flex flex-col lg:w-[50%] justify-center items-center">
+                {
+                    state.status === 'otp' ?
+                        null
+                        :
+                        <>
+                            <Google />
+                            <h1 className="font-playfair my-8">OR</h1>
+                        </>
+                }
                 {
                     state.status === 'register' ?
                         <Register redux={{ dispatch, setIsLoading }} setState={setState} state={state} />

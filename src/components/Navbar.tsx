@@ -8,10 +8,14 @@ import useGeneral from '@/hooks/general/useGeneral'
 import { user, insta, twit, tele, love } from '@/config/images'
 import Menu from './Menu'
 import bag from '@/assets/icon/bag.png'
+import useWishList from '@/hooks/wishlist/useWishList'
 
 function RightBar(router: any) {
 
   const { isAuthenticated } = useGeneral();
+  const { getWishList } = useWishList();
+  const wishList = getWishList()
+  
   const cart = useCart()
   var dim = 35;
 
@@ -21,10 +25,15 @@ function RightBar(router: any) {
         {isAuthenticated ?
           <>
             <Image onClick={() => router.router.push('/account')} src={user} alt='erota' height='50' width='50' className='lg:hover:cursor-pointer active:scale-90 duration-150 lg:block hidden shadow-md rounded-full' />
-            <Image onClick={() => router.router.push('/wishlist')} className='active:scale-90 duration-150' src={love} alt="erota" height={dim} width={dim} />
+
+            <div onClick={() => router.router.push('/wishlist')} className="active:scale-90 duration-150 hover:cursor-pointer relative">
+              <Image src={love} alt="erota" height={dim} width={dim} />
+              <h1 className="absolute text-base font-poppin font-semibold bottom-7 left-8 text-primary">{isAuthenticated ? wishList.length : 0}</h1>
+            </div>
+
             <div onClick={() => router.router.push('/cart')} className="active:scale-90 duration-150 hover:cursor-pointer relative">
               <Image src={bag} alt="erota" height={dim} width={dim} />
-              <h1 className="absolute font-poppin font-semibold bottom-7 left-7">{isAuthenticated ? cart.length : 0}</h1>
+              <h1 className="absolute font-poppin text-base text-primary font-semibold bottom-7 left-7">{isAuthenticated ? cart.length : 0}</h1>
             </div>
           </>
           :

@@ -10,7 +10,6 @@ const useApiResult = () => {
             case 'true':
                 return true;
             case 'empty':
-                console.log('API empty');
                 return false;
             case 'error':
                 toast({

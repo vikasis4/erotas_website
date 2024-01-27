@@ -10,7 +10,7 @@ export type productTypes = {
     productId: String,
     name: String,
     price: number,
-    description: string,
+    description: { heading: String, text: String[] }[],
     imagesLink: string[],
     reviews: string[],
     searchWords: string[]
@@ -47,7 +47,7 @@ export type OrderType = {
     price: number,
     trackingLink: string,
     shipmentCreated: boolean,
-    delivered:boolean,
+    delivered: boolean,
     created_at: Date,
     updated_at: Date,
     products: {
@@ -69,7 +69,7 @@ export type OrderType = {
 
 export type SupportType = {
     phone: number,
-    userId:string,
+    userId: string,
 }
 
 export type wishListType = {

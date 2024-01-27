@@ -12,7 +12,7 @@ const useCheckAuth = () => {
             toast({
                 variant: "destructive",
                 title: "Warning",
-                description: "Please Login to proceed action",
+                description: "Please Login to proceed with this action",
             })
             return false
         } else {

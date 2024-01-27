@@ -29,14 +29,14 @@ function ProductMap({ data }: any) {
                     <YesImage l={imageLink} d={400} c='rounded-lg shadow-md' />
                     </CardTitle>
                     <CardDescription className='flex justify-around items-center pt-4'>
-                        <h1 className="text-3xl md:text-lg font-playfair font-medium text-black text-center py-1">{name}</h1>
+                        <h1 className="text-2xl md:text-lg font-playfair font-medium text-black text-center py-1">{name}</h1>
                         <FavButton productId={productId} />
                     </CardDescription>
                 </CardHeader>
                 <CardContent className='flex gap-4 px-12 justify-start items-center'>
                     <h1 className="text-2xl md:text-xl font-poppin font-bold text-primary text-center py-1">&#8377; {price}</h1>
-                    <h1 className="line-through text-xl md:text-2xl font-poppin text-red-300 text-center py-1">&#8377; {price+200}</h1>
-                    <h1 className="text-xl md:text-2xl font-poppin text-green-500 text-center py-1">{Math.round((200)*100/(price+200))}% off</h1>
+                    <h1 className="line-through text-xl md:text-2xl font-poppin text-red-300 text-center py-1">&#8377; {price+300}</h1>
+                    <h1 className="text-xl md:text-2xl font-poppin text-green-500 text-center py-1">{Math.round((300)*100/(price+300))}% off</h1>
                 </CardContent>
                 <CardFooter className='flex flex-col justify-center items-center gap-4'>
                     <Button size="lg" className='text-base font-playfair w-full' onClick={() => router.push(`/product/${productId}`)}>View Product</Button>

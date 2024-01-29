@@ -6,11 +6,6 @@ import priceCalc from '@/utils/priceCalculator';
 import useCart from '@/hooks/cart/useCart';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import type { Metadata } from 'next'
-export const metadata: Metadata = {
-    title: 'Erota Cart',
-    description: 'Erota is an online shop for purchansing well crafted teddies and clothes, erota ensures that customers can have access to high quality products',
-  }
 
 function page() {
 

@@ -5,11 +5,6 @@ import useAddSupport from '@/hooks/support/useAddSupport'
 import useGetSupport from '@/hooks/support/useGetSupport'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button';
-import type { Metadata } from 'next'
-export const metadata: Metadata = {
-    title: 'Erota Customer Support',
-    description: 'Erota is an online shop for purchansing well crafted teddies and clothes, erota ensures that customers can have access to high quality products',
-  }
 
 function page() {
 

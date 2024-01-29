@@ -44,7 +44,7 @@ export default function Page() {
                             }
                         </div>
                         <div>
-                            <Image loader={myLoader} src={ProductBaseURL + product?.imagesLink[0]} alt="product" height="300" width="300"
+                            <Image loader={myLoader} src={ProductBaseURL + product?.imagesLink[0]} alt="product" height="350" width="350"
                                 className="rounded-xl shadow-lg lg:flex-3 lg:mr-24"
                             />
                         </div>

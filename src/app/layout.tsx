@@ -30,7 +30,7 @@ const roboto_mono = Roboto_Mono({
 
 export const metadata: Metadata = {
   title: 'Erota',
-  description: 'Erota shopping',
+  description: 'Erota is an online shop for purchansing well crafted teddies and clothes, erota ensures that customers can have access to high quality products',
 }
 
 export default function RootLayout({
@@ -52,6 +52,7 @@ export default function RootLayout({
             </StoreProvider>
           </AuthProvider>
           <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+          
         </body>
       </html>
     </>

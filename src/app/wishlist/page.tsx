@@ -2,6 +2,11 @@
 import React from 'react'
 import useWishList from '@/hooks/wishlist/useWishList'
 import ProductMap from '@/components/product/ProductMap';
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+    title: 'Erota WishList',
+    description: 'Erota is an online shop for purchansing well crafted teddies and clothes, erota ensures that customers can have access to high quality products',
+  }
 
 function page() {
 

@@ -8,7 +8,11 @@ import Login from '@/components/auth/Login'
 import { useAppSelector, useAppDispatch } from '@/redux/hooks';
 import { setIsLoading } from '@/redux/slice/general/index'
 import Google from '@/components/auth/Google';
-
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+    title: 'Erota Authentication',
+    description: 'Erota is an online shop for purchansing well crafted teddies and clothes, erota ensures that customers can have access to high quality products',
+  }
 
 function page() {
 

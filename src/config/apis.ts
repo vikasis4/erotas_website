@@ -5,7 +5,7 @@ const ProductionBase = 'https://erotasbackend-production.up.railway.app';
 
 var prod = true;
 // var prod = false;
-const CurrentBase = prod ? ProductionBase : Port2;
+const CurrentBase = prod ? ProductionBase : Port1;
 
 export const baseUrl = CurrentBase + '/api/'
 export const otpVerifyApi = CurrentBase + '/api/auth/otp/verify'

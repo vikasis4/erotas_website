@@ -32,6 +32,10 @@ function Menu() {
         window.location.reload();
     }
 
+    const divClass = "px-6 py-2 bg-primary rounded w-full flex justify-between"
+    const innerDivClass = "flex gap-4 justify-center items-center"
+    const mainClass = "text-sm shadow-md flex flex-col gap-4 my-4 w-[90%] m-auto justify-center items-strech font-poppin text-white font-semibold"
+
     return (
         <Drawer>
             <DrawerTrigger>
@@ -51,18 +55,50 @@ function Menu() {
                                 <Button onClick={() => router.push('/')}>Home</Button>
                             </div>
                             :
-                            <div className="flex flex-col gap-4 my-4 w-[90%] m-auto justify-center items-strech">
-                                <Button onClick={() => router.push('/')}>Home</Button>
-                                <Button onClick={() => router.push('/address')}>Edit Delivery Address</Button>
-                                <Button onClick={() => router.push('/support')}>Customer Support</Button>
-                                <Button onClick={() => router.push('/orders')}>Check Your Orders</Button>
-                                <Button onClick={handleLogOut}>Log Out</Button>
+                            <div className={mainClass}>
+
+                                <div onClick={() => router.push('/')} className={divClass}>
+                                    <div className={innerDivClass}>
+                                        <Image src={`/icon/home.png`} alt='home' width="20" height="20" />
+                                        <h1>Home</h1>
+                                    </div>
+                                    <Image src={`/icon/right.png`} alt='home' width="20" height="10" />
+                                </div>
+                                <div onClick={() => router.push('/address')} className={divClass}>
+                                    <div className={innerDivClass}>
+                                        <Image src={`/icon/delivery.png`} alt='delivery' width="20" height="20" />
+                                        <h1>Edit Delivery Address</h1>
+                                    </div>
+                                    <Image src={`/icon/right.png`} alt='home' width="20" height="10" />
+                                </div>
+                                <div onClick={() => router.push('/support')} className={divClass}>
+                                    <div className={innerDivClass}>
+                                        <Image src={`/icon/support.png`} alt='support' width="25" height="25" />
+                                        <h1>Customer Support</h1>
+                                    </div>
+                                    <Image src={`/icon/right.png`} alt='home' width="20" height="10" />
+                                </div>
+                                <div onClick={() => router.push('/orders')} className={divClass}>
+                                    <div className={innerDivClass}>
+                                        <Image src={`/icon/ship.png`} alt='orders' width="20" height="20" />
+                                        <h1>View Orders</h1>
+                                    </div>
+                                    <Image src={`/icon/right.png`} alt='home' width="20" height="10" />
+                                </div>
+                                <div onClick={handleLogOut} className={divClass}>
+                                    <div className={innerDivClass}>
+                                        <Image src={`/icon/logout.png`} alt='logout' width="24" height="24" />
+                                        <h1>LogOut</h1>
+                                    </div>
+                                    <Image src={`/icon/right.png`} alt='home' width="20" height="10" />
+                                </div>
+
                             </div>
                     }
                 </DrawerClose>
                 <DrawerFooter>
-                    <DrawerClose>
-                        <Button variant="secondary">Cancel</Button>
+                    <DrawerClose className="w-full">
+                        <Button className="w-full" variant="secondary">Cancel</Button>
                     </DrawerClose>
                 </DrawerFooter>
             </DrawerContent>

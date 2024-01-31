@@ -52,7 +52,7 @@ export default function RootLayout({
             </StoreProvider>
           </AuthProvider>
           <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-          
+          <link rel="icon" href="/favicon.ico" sizes="any" />
         </body>
       </html>
     </>

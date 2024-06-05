@@ -1,7 +1,7 @@
 const DevBase = 'http://localhost:3001'
 const Port1 = 'http://172.16.172.109:3001'
 const Port2 = 'http://192.168.161.76:3001'
-const ProductionBase = 'https://erotasbackend-production.up.railway.app';
+const ProductionBase = 'https://erotas-backend.onrender.com';
 
 var prod = true;
 // var prod = false;

@@ -1,10 +1,10 @@
 const local = 'http://localhost:3001'
 const port = 'http://192.168.11.36:3001'
-const ProductionBase = 'https://erotas-backend.onrender.com';
+const production = 'https://erotas-backend.onrender.com';
 
-// var prod = true;
-var prod = false;
-const CurrentBase = prod ? ProductionBase : port;
+var prod = true;
+// var prod = false;
+const CurrentBase = prod ? production : port;
 
 export const baseUrl = CurrentBase + '/api/'
 export const otpVerifyApi = CurrentBase + '/api/auth/otp/verify'

@@ -21,9 +21,9 @@ function FavButton({ productId }: { productId: string }) {
         <>
             {
                 selected ?
-                    <Image onClick={() => removeFromWishList(productId)} src={ylove} height="40" width="40" className='h-6 w-6' alt="erota" />
+                    <Image onClick={(e) => { e.stopPropagation(); removeFromWishList(productId) }} src={ylove} height="40" width="40" className='h-6 w-6' alt="erota" />
                     :
-                    <Image onClick={() => addToWishList(productId)} src={love} height="40" width="40" className='h-6 w-6' alt="erota" />
+                    <Image onClick={(e) => { e.stopPropagation(); addToWishList(productId) }} src={love} height="40" width="40" className='h-6 w-6' alt="erota" />
             }
         </>
     )

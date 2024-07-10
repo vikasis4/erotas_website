@@ -18,12 +18,12 @@ function ProductConfig({ productId }: { productId: any }) {
 
           <button
             onClick={() => addToCart(productId)}
-            className="bg-white border border-box border-primary flex-1 lg:hover:scale-125 duration-300 rounded font-semibold text-primary text-xl shadow p-3" >
+            className="bg-primary-foreground text-primary border-primary px-10 py-4 md:px-6 md:py-2  rounded-md hover:bg-primary hover:border hover:border-primary border hover:text-white transition-colors duration-600" >
             Add to Cart
           </button>
           :
           <div
-            className="bg-white border border-box border-primary flex-1 border-box flex justify-around lg:w-[40%] m-auto items-center rounded font-poppin text-primary text-xl shadow p-3" >
+            className="bg-primary-foreground flex gap-4 text-primary border-primary px-10 py-4 md:px-6 md:py-2  rounded-md hover:bg-primary hover:border hover:border-primary border hover:text-white transition-colors duration-600" >
             <button
               onClick={() => removeFromCart(productId)}
             >

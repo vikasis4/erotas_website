@@ -1,11 +1,10 @@
-const DevBase = 'http://localhost:3001'
-const Port1 = 'http://172.16.172.109:3001'
-const Port2 = 'http://192.168.161.76:3001'
+const local = 'http://localhost:3001'
+const port = 'http://192.168.11.36:3001'
 const ProductionBase = 'https://erotas-backend.onrender.com';
 
-var prod = true;
-// var prod = false;
-const CurrentBase = prod ? ProductionBase : Port1;
+// var prod = true;
+var prod = false;
+const CurrentBase = prod ? ProductionBase : port;
 
 export const baseUrl = CurrentBase + '/api/'
 export const otpVerifyApi = CurrentBase + '/api/auth/otp/verify'

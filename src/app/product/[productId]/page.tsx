@@ -28,54 +28,62 @@ export default function Page() {
     return (
         <>
             {
+                <div className="flex flex-col lg:flex-row p-4 items-start mt-4 md:mt-12">
 
-                <div className="flex lg:flex-row flex-col justify-between mt-12 gap-12 lg:gap-0">
-
-                    <div className="flex lg:flex-row border-box flex-col-reverse flex-1 justify-center items-center lg:items-start lg:gap-10">
-                        <div className="flex lg:flex-1 justify-center items-center gap-8 mt-12 lg:flex-col w-full">
-                            {
-                                product?.imagesLink?.map((link, index) => {
-                                    return (<div key={index}>
-                                        <Image onClick={() => setCurrentImage(index)} loader={() => newLoader(index)} src={ProductBaseURL + product.imagesLink[index]} alt="product" height="50" width="50"
-                                            className="rounded-xl h-20 w-20 shadow-lg lg:hover:scale-[2.5] hover:cursor-pointer duration-300"
-                                        />
-                                    </div>)
-                                })
-                            }
-                        </div>
-                        <div>
-                            <Image loader={myLoader} src={ProductBaseURL + product?.imagesLink[0]} alt="product" height="350" width="350"
-                                className="rounded-xl shadow-lg lg:flex-3 lg:mr-24"
+                    <div className="flex md:ml-16 flex-col md:flex-row-reverse gap-8 justify-center items-start">
+                        <div className="w-full flex justify-center items-center flex-col">
+                            <Image loader={myLoader} src={ProductBaseURL + product?.imagesLink[0]} alt="product" height="500" width="500"
+                                className="rounded-xl border border-gray-400 shadow-lg"
                             />
+                            <div className="mt-6 flex space-x-4 w-full justify-center items-center">
+                                <ProductConfig productId={id.productId} />
+                                <button onClick={() => router.push('/cart')} className="bg-primary text-white px-10 py-4 md:px-6 md:py-2 rounded-md hover:bg-primary-foreground hover:border hover:border-primary border hover:text-primary transition-colors duration-600">
+                                    Go to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <div className="flex md:flex-col mb-4 gap-4 md:mt-4 w-full md:w-[20%] justify-center">
+                            {product?.imagesLink?.map((src: any, index: any) => (
+                                <Image onClick={() => setCurrentImage(index)} loader={() => newLoader(index)} src={ProductBaseURL + product.imagesLink[index]} alt="product" height="50" width="50"
+                                    className="rounded-md h-20 w-20 hover:cursor-pointer duration-300 border border-gray-400"
+                                />
+                            ))}
                         </div>
                     </div>
 
-                    <div className="font-playfair text-center border-box px-4 flex-1 gap-8 flex flex-col justify-between items-center pr-4 pb-12">
-                        <h1 className="font-semibold text-3xl" >{product?.name}</h1>
-                        <div className="flex gap-4">
-                            <h1 className="text-2xl md:text-xl font-poppin font-bold text-primary text-center py-1">&#8377; {product?.price}</h1>
-                            <h1 className="line-through text-xl md:text-2xl font-poppin text-red-300 text-center py-1">&#8377; {product? product.price + 300 : null}</h1>
-                            <h1 className="text-xl md:text-2xl font-poppin text-green-500 text-center py-1">{Math.round((300) * 100 / (product? product.price + 300 : 1))}% off</h1>
+                    <div className="flex-grow mt-4 lg:mt-0 lg:ml-8">
+                        <div className="border border-gray-200 md:w-3/4 p-8 rounded-md">
+                            <h2 className="text-2xl font-semibold">{product?.name}</h2>
+                            <p className="text-2xl text-gray-800 font-semibold mt-2">₹ {product?.price}</p>
+                            <div className="flex items-center mt-2">
+                                <span className="bg-green-500 text-white text-xs px-2 py-1 rounded">3.7</span>
+                                <span className="ml-2 text-gray-600">97 Ratings, 139 Reviews</span>
+                            </div>
+                            <p className="text-green-600 font-semibold mt-2">Free Delivery</p>
+                        </div>
 
+                        <div className="mt-4 border-gray-200 md:w-3/4 p-8 rounded-md border">
+                            <ul className="text-gray-700 mt-2 space-y-1">
+                                {
+                                    product?.description.map((data: any, index: any) => (<Description key={index} description={data} />))
+                                }
+                            </ul>
                         </div>
-                        <div className="flex border-box w-full gap-4 justify-center items-center">
-                            <button onClick={() => router.push('/cart')} className="bg-red-200 border border-red-200 active:scale-90 rounded lg:hover:scale-125 flex-1 duration-300 font-semibold text-primary shadow text-xl px-3 py-4" >Go To Cart</button>
-                            <ProductConfig productId={id.productId} />
-                        </div>
-                        <div className="w-full p-4 flex flex-col justify-center items-center gap-6">
-                            {
-                                product?.description.map((data, index) =>(<Description key={index} description={data} />))
-                            }
-                        </div>
-                        <h1 className="font-semibold text-4xl">Reviews</h1>
-                        <div className="flex flex-wrap gap-4">
-                            {
-                                product?.reviews?.map((review, index) => {
-                                    return (<div key={index}>
-                                        <h1 className="bg-white rounded font-poppin text-sm shadow-md p-2 text-left" >{review}</h1>
-                                    </div>)
-                                })
-                            }
+
+
+                        <div className="mt-4 border-gray-200 md:w-3/4 p-8 rounded-md border">
+                            <h1 className="font-bold text-2xl pb-2">
+                                Reviews
+                            </h1>
+                            <ul className="text-gray-700 mt-2 space-y-1">
+                                {
+                                    product?.reviews?.map((review: any, index: any) => {
+                                        return (<div key={index}>
+                                            <h1 className="bg-white rounded font-poppin text-sm p-2 text-left" >* {review}</h1>
+                                        </div>)
+                                    })
+                                }
+                            </ul>
                         </div>
                     </div>
 

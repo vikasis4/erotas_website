@@ -23,24 +23,27 @@ function ProductMap({ data }: any) {
 
     return (
         <>
-            <Card className="w-[90%] m-auto lg:w-[40%]">
-                <CardHeader>
-                    <CardTitle className='flex justify-center items-center'>
-                    <YesImage l={imageLink} d={400} c='rounded-lg shadow-md' />
+            <Card onClick={() => router.push(`/product/${productId}`)} className="w-[45%] mb-4 md:w-[30%] hover:cursor-pointer lg:w-[20%]">
+                <CardHeader className='m-0 p-0'>
+                    <CardTitle className='flex justify-center items-center m-0 p-0'>
+                        <YesImage l={imageLink} d={2500} c='rounded-t-lg shadow-md' />
                     </CardTitle>
-                    <CardDescription className='flex justify-around items-center pt-4'>
-                        <h1 className="text-2xl md:text-lg font-playfair font-medium text-black text-center py-1">{name}</h1>
-                        <FavButton productId={productId} />
-                    </CardDescription>
                 </CardHeader>
-                <CardContent className='flex gap-4 px-12 justify-start items-center'>
-                    <h1 className="text-2xl md:text-xl font-poppin font-bold text-primary text-center py-1">&#8377; {price}</h1>
-                    <h1 className="line-through text-xl md:text-2xl font-poppin text-red-300 text-center py-1">&#8377; {price+300}</h1>
-                    <h1 className="text-xl md:text-2xl font-poppin text-green-500 text-center py-1">{Math.round((300)*100/(price+300))}% off</h1>
+                <CardContent className='flex gap-4 px-4 justify-start items-center'>
+                    <div className="mt-4 w-full">
+                        <div className='flex w-full justify-between items-center'>
+                            <h2 className="text-lg font-semibold">{name}</h2>
+                            <FavButton productId={productId} />
+                        </div>
+                        <p className="text-gray-500 mt-1">₹{price} onwards</p>
+                        <p className="text-green-600 text-sm font-semibold mt-2">Free Delivery</p>
+                        <div className="flex items-center mt-2">
+                            <span className="bg-green-500 text-white text-xs px-2 py-1 rounded">{Math.floor(Math.random() * 10)}.{Math.floor(Math.random() * 10)}</span>
+                            <span className="ml-2 text-sm text-gray-600">{Math.floor(Math.random() * 100)} Reviews</span>
+                        </div>
+                        <p className="text-blue-500 mt-2 text-sm">+{Math.floor(Math.random() * 10)} More</p>
+                    </div>
                 </CardContent>
-                <CardFooter className='flex flex-col justify-center items-center gap-4'>
-                    <Button size="lg" className='text-base font-playfair w-full' onClick={() => router.push(`/product/${productId}`)}>View Product</Button>
-                </CardFooter>
             </Card>
         </>
     )

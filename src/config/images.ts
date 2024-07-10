@@ -12,10 +12,11 @@ import user from '@/assets/icon/user.png'
 import teddy from '@/assets/icon/teddy.png'
 import decor from '@/assets/icon/decor.png'
 import cloth from '@/assets/icon/cloth.png'
+import pic1 from '@/assets/image/pic1.jpg'
 
 
 /////////////////// IMAGES ///////////////////
 import loader from '@/assets/image/loader.gif'
 
 
-export { teddy,decor,cloth, close, delet, edit, insta, logo, love, tele, twit, user, loader, ylove }
+export { teddy,decor,cloth, close, delet, edit, insta, logo, love, tele, twit, user, loader, ylove,pic1 }

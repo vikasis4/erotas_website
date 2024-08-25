@@ -1,6 +1,6 @@
 const local = 'http://localhost:3001'
 const port = 'http://192.168.11.36:3001'
-const production = 'http://166.0.244.168';
+const production = 'https://166.0.244.168';
 
 // var prod = true;
 var prod = true;

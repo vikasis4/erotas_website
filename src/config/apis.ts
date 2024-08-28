@@ -1,6 +1,6 @@
 const local = 'http://localhost:3001'
 const port = 'http://192.168.11.36:3001'
-const production = 'https://166.0.244.168:80';
+const production = 'https://api.vecna.online';
 
 // var prod = true;
 var prod = true;
